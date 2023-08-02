@@ -1,0 +1,1684 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://semnox.com/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://semnox.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://semnox.com/">
+      <s:element name="GetLanguage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="siteId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLanguageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetLanguageResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSplashScreenDetails">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSplashScreenDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSplashScreenDetailsResult" type="tns:ArrayOfKeyValueStruct" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfKeyValueStruct">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="KeyValueStruct" nillable="true" type="tns:KeyValueStruct" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="KeyValueStruct">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetApkInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apkName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="macAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="version" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetApkInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetApkInfoResult" type="tns:ArrayOfKeyValueStruct" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLookUps">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLookUpsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLookUpsResult" type="tns:ArrayOfLookupValuesDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLookupValuesDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LookupValuesDTO" nillable="true" type="tns:LookupValuesDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LookupValuesDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LookupValueId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LookupId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LookupName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LookupValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetLookUpValuesList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lookupParams" type="tns:LookupParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LookupParams">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="LookupValueId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="LookupId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LookupValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LookupName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="SiteId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetLookUpValuesListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLookUpValuesListResult" type="tns:ArrayOfLookupValuesDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFormat">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="formatType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="siteId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFormatResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFormatResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessageFromId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="messageId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="languageId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="siteId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessageFromIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMessageFromIdResult" type="tns:TranslatedMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TranslatedMessage">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MessageIdentifier" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MessageText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TranslatedText" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMessageFromMessageKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="messageKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="languageId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="siteId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessageFromMessageKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMessageFromMessageKeyResult" type="tns:TranslatedMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessageFromMessageKeyList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="messageKeyList" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="languageId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="siteId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMessageFromMessageKeyListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMessageFromMessageKeyListResult" type="tns:ArrayOfTranslatedMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTranslatedMessage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TranslatedMessage" nillable="true" type="tns:TranslatedMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMessageFromMessageIdList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="messageKeyList" type="tns:ArrayOfInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="languageId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="siteId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMessageFromMessageIdListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMessageFromMessageIdListResult" type="tns:ArrayOfTranslatedMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckWebService">
+        <s:complexType />
+      </s:element>
+      <s:element name="CheckWebServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckWebServiceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateWebService">
+        <s:complexType />
+      </s:element>
+      <s:element name="ValidateWebServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidateWebServiceResult" type="tns:ArrayOfKeyValueStruct" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateZip">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="address2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="zip" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateZipResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidateZipResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="zip" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListValuesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWebsiteConfiguration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="siteId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWebsiteConfigurationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWebsiteConfigurationResult" type="tns:ArrayOfSerializableKeyValuePairOfStringString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSerializableKeyValuePairOfStringString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SerializableKeyValuePairOfStringString" nillable="true" type="tns:SerializableKeyValuePairOfStringString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SerializableKeyValuePairOfStringString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetEmailTemplate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="templateName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="siteId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmailTemplateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmailTemplateResult" type="tns:ArrayOfKeyValueStruct" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetParafaitDefaults">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="screenGroup" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="siteId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="defaultValue" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetParafaitDefaultsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetParafaitDefaultsResult" type="tns:ArrayOfKeyValueStruct" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCountryList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="countryParams" type="tns:CountryParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CountryParams">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="CountryId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="SiteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShowState" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShowLookupCountry" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCountryListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCountryListResult" type="tns:ArrayOfCountryDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCountryDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CountryDTO" nillable="true" type="tns:CountryDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CountryDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="StateList" type="tns:ArrayOfStateDTO" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfStateDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="StateDTO" nillable="true" type="tns:StateDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="StateDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StateId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOffSetDuration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="siteId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="inDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOffSetDurationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetOffSetDurationResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiteList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSiteListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSiteListResult" type="tns:ArrayOfSiteDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSiteDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SiteDTO" nillable="true" type="tns:SiteDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SiteDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiteName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiteAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiteGuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrgId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUploadTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUploadServerTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUploadMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InitialLoadDone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaxCards" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerKey" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompanyId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsMasterSite" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiteShortName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OnlineEnabled" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AboutUs" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PinCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OpenDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CloseDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiteURL" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Size" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StoreType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OpenTime" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CloseTime" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Logo" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateFirstDataKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="keyId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="keyString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFirstDataKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateFirstDataKeyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TranslateMessageKeyList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="messageKeyList" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="readerLanguageNo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TranslateMessageKeyListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TranslateMessageKeyListResult" type="tns:ArrayOfTranslatedMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCCRequestPGW">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cCRequestPGWDTO" type="tns:CCRequestPGWDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="macAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CCRequestPGWDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RequestID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="InvoiceNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestDatetime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="POSAmount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferenceNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StatusID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardLastFourDigits" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EDSettlement" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MerchantID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateCCRequestPGWResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateCCRequestPGWResult" type="tns:CCRequestPGWDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCCTransactionsPGW">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ccTransactionsPGWDTO" type="tns:CCTransactionsPGWDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CCTransactionsPGWDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ResponseID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="InvoiceNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TokenID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecordNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DSIXReturnCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StatusID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TextResponse" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AcctNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TranCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RefNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Purchase" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Authorize" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionDatetime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuthCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProcessData" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResponseOrigin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserTraceData" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CaptureStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AcqRefData" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipAmount" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerCopy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MerchantCopy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateCCTransactionsPGWResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateCCTransactionsPGWResult" type="tns:CCTransactionsPGWDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLanguages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="siteId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLanguagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLanguagesResult" type="tns:ArrayOfLanguagesDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLanguagesDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LanguagesDTO" nillable="true" type="tns:LanguagesDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LanguagesDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LanguageId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LanguageName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LanguageCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FontName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FontSize" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReaderLanguageNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Site_id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remarks" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CultureCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Active" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ValidateToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="refreshToken" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidateTokenResult" type="tns:SecurityTokenDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SecurityTokenDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TokenId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TableObject" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ObjectGuid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpiryTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastActivityTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvalidAttempts" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsActive" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdatedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TokenValidated" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="TokenValidationMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoginId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LanguageId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RoleId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MachineId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ClearEnvironmentContext">
+        <s:complexType />
+      </s:element>
+      <s:element name="ClearEnvironmentContextResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRichContentList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="application" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="module" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRichContentListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRichContentListResult" type="tns:ArrayOfRichContentDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRichContentDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RichContentDTO" nillable="true" type="tns:RichContentDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RichContentDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContentName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Data" type="s:base64Binary" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdatedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContentType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTnCImage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="siteId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="application" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="module" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="posName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTnCImageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTnCImageResult" type="tns:KeyValueStruct" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDefaultValue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="defaultValueName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loginName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="siteid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="machineId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="isCorporate" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="languageId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDefaultValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDefaultValueResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServerStatus">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetServerStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetServerStatusResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClearToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClearTokenResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetLanguageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLanguage" />
+  </wsdl:message>
+  <wsdl:message name="GetLanguageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLanguageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSplashScreenDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSplashScreenDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetSplashScreenDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSplashScreenDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetApkInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetApkInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetApkInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetApkInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLookUpsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLookUps" />
+  </wsdl:message>
+  <wsdl:message name="GetLookUpsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLookUpsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLookUpValuesListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLookUpValuesList" />
+  </wsdl:message>
+  <wsdl:message name="GetLookUpValuesListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLookUpValuesListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFormatSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFormat" />
+  </wsdl:message>
+  <wsdl:message name="GetFormatSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFormatResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageFromIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMessageFromId" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageFromIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMessageFromIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageFromMessageKeySoapIn">
+    <wsdl:part name="parameters" element="tns:GetMessageFromMessageKey" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageFromMessageKeySoapOut">
+    <wsdl:part name="parameters" element="tns:GetMessageFromMessageKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageFromMessageKeyListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMessageFromMessageKeyList" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageFromMessageKeyListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMessageFromMessageKeyListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageFromMessageIdListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMessageFromMessageIdList" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageFromMessageIdListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMessageFromMessageIdListResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckWebServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckWebService" />
+  </wsdl:message>
+  <wsdl:message name="CheckWebServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckWebServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateWebServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateWebService" />
+  </wsdl:message>
+  <wsdl:message name="ValidateWebServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateWebServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateZipSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateZip" />
+  </wsdl:message>
+  <wsdl:message name="ValidateZipSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateZipResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListValues" />
+  </wsdl:message>
+  <wsdl:message name="GetListValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWebsiteConfigurationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWebsiteConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="GetWebsiteConfigurationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWebsiteConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmailTemplateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmailTemplate" />
+  </wsdl:message>
+  <wsdl:message name="GetEmailTemplateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmailTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetParafaitDefaultsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetParafaitDefaults" />
+  </wsdl:message>
+  <wsdl:message name="GetParafaitDefaultsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetParafaitDefaultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCountryListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCountryList" />
+  </wsdl:message>
+  <wsdl:message name="GetCountryListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCountryListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOffSetDurationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOffSetDuration" />
+  </wsdl:message>
+  <wsdl:message name="GetOffSetDurationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOffSetDurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSiteList" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSiteListResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFirstDataKeySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateFirstDataKey" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFirstDataKeySoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateFirstDataKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="TranslateMessageKeyListSoapIn">
+    <wsdl:part name="parameters" element="tns:TranslateMessageKeyList" />
+  </wsdl:message>
+  <wsdl:message name="TranslateMessageKeyListSoapOut">
+    <wsdl:part name="parameters" element="tns:TranslateMessageKeyListResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCCRequestPGWSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCCRequestPGW" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCCRequestPGWSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCCRequestPGWResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCCTransactionsPGWSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCCTransactionsPGW" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCCTransactionsPGWSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCCTransactionsPGWResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLanguagesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLanguages" />
+  </wsdl:message>
+  <wsdl:message name="GetLanguagesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLanguagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateToken" />
+  </wsdl:message>
+  <wsdl:message name="ValidateTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="ClearEnvironmentContextSoapIn">
+    <wsdl:part name="parameters" element="tns:ClearEnvironmentContext" />
+  </wsdl:message>
+  <wsdl:message name="ClearEnvironmentContextSoapOut">
+    <wsdl:part name="parameters" element="tns:ClearEnvironmentContextResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRichContentListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRichContentList" />
+  </wsdl:message>
+  <wsdl:message name="GetRichContentListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRichContentListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTnCImageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTnCImage" />
+  </wsdl:message>
+  <wsdl:message name="GetTnCImageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTnCImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDefaultValueSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDefaultValue" />
+  </wsdl:message>
+  <wsdl:message name="GetDefaultValueSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDefaultValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServerStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServerStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetServerStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServerStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ClearTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:ClearToken" />
+  </wsdl:message>
+  <wsdl:message name="ClearTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:ClearTokenResponse" />
+  </wsdl:message>
+  <wsdl:portType name="GenericUtilitiesSoap">
+    <wsdl:operation name="GetLanguage">
+      <wsdl:input message="tns:GetLanguageSoapIn" />
+      <wsdl:output message="tns:GetLanguageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSplashScreenDetails">
+      <wsdl:input message="tns:GetSplashScreenDetailsSoapIn" />
+      <wsdl:output message="tns:GetSplashScreenDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApkInfo">
+      <wsdl:input message="tns:GetApkInfoSoapIn" />
+      <wsdl:output message="tns:GetApkInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLookUps">
+      <wsdl:input message="tns:GetLookUpsSoapIn" />
+      <wsdl:output message="tns:GetLookUpsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLookUpValuesList">
+      <wsdl:input message="tns:GetLookUpValuesListSoapIn" />
+      <wsdl:output message="tns:GetLookUpValuesListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFormat">
+      <wsdl:input message="tns:GetFormatSoapIn" />
+      <wsdl:output message="tns:GetFormatSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageFromId">
+      <wsdl:input message="tns:GetMessageFromIdSoapIn" />
+      <wsdl:output message="tns:GetMessageFromIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageFromMessageKey">
+      <wsdl:input message="tns:GetMessageFromMessageKeySoapIn" />
+      <wsdl:output message="tns:GetMessageFromMessageKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageFromMessageKeyList">
+      <wsdl:input message="tns:GetMessageFromMessageKeyListSoapIn" />
+      <wsdl:output message="tns:GetMessageFromMessageKeyListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageFromMessageIdList">
+      <wsdl:input message="tns:GetMessageFromMessageIdListSoapIn" />
+      <wsdl:output message="tns:GetMessageFromMessageIdListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckWebService">
+      <wsdl:input message="tns:CheckWebServiceSoapIn" />
+      <wsdl:output message="tns:CheckWebServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateWebService">
+      <wsdl:input message="tns:ValidateWebServiceSoapIn" />
+      <wsdl:output message="tns:ValidateWebServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateZip">
+      <wsdl:input message="tns:ValidateZipSoapIn" />
+      <wsdl:output message="tns:ValidateZipSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListValues">
+      <wsdl:input message="tns:GetListValuesSoapIn" />
+      <wsdl:output message="tns:GetListValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWebsiteConfiguration">
+      <wsdl:input message="tns:GetWebsiteConfigurationSoapIn" />
+      <wsdl:output message="tns:GetWebsiteConfigurationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailTemplate">
+      <wsdl:input message="tns:GetEmailTemplateSoapIn" />
+      <wsdl:output message="tns:GetEmailTemplateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParafaitDefaults">
+      <wsdl:input message="tns:GetParafaitDefaultsSoapIn" />
+      <wsdl:output message="tns:GetParafaitDefaultsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryList">
+      <wsdl:input message="tns:GetCountryListSoapIn" />
+      <wsdl:output message="tns:GetCountryListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOffSetDuration">
+      <wsdl:input message="tns:GetOffSetDurationSoapIn" />
+      <wsdl:output message="tns:GetOffSetDurationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteList">
+      <wsdl:input message="tns:GetSiteListSoapIn" />
+      <wsdl:output message="tns:GetSiteListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFirstDataKey">
+      <wsdl:input message="tns:UpdateFirstDataKeySoapIn" />
+      <wsdl:output message="tns:UpdateFirstDataKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TranslateMessageKeyList">
+      <wsdl:input message="tns:TranslateMessageKeyListSoapIn" />
+      <wsdl:output message="tns:TranslateMessageKeyListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCCRequestPGW">
+      <wsdl:input message="tns:UpdateCCRequestPGWSoapIn" />
+      <wsdl:output message="tns:UpdateCCRequestPGWSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCCTransactionsPGW">
+      <wsdl:input message="tns:UpdateCCTransactionsPGWSoapIn" />
+      <wsdl:output message="tns:UpdateCCTransactionsPGWSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguages">
+      <wsdl:input message="tns:GetLanguagesSoapIn" />
+      <wsdl:output message="tns:GetLanguagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateToken">
+      <wsdl:input message="tns:ValidateTokenSoapIn" />
+      <wsdl:output message="tns:ValidateTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearEnvironmentContext">
+      <wsdl:input message="tns:ClearEnvironmentContextSoapIn" />
+      <wsdl:output message="tns:ClearEnvironmentContextSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRichContentList">
+      <wsdl:input message="tns:GetRichContentListSoapIn" />
+      <wsdl:output message="tns:GetRichContentListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTnCImage">
+      <wsdl:input message="tns:GetTnCImageSoapIn" />
+      <wsdl:output message="tns:GetTnCImageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultValue">
+      <wsdl:input message="tns:GetDefaultValueSoapIn" />
+      <wsdl:output message="tns:GetDefaultValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerStatus">
+      <wsdl:input message="tns:GetServerStatusSoapIn" />
+      <wsdl:output message="tns:GetServerStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearToken">
+      <wsdl:input message="tns:ClearTokenSoapIn" />
+      <wsdl:output message="tns:ClearTokenSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GenericUtilitiesSoap" type="tns:GenericUtilitiesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLanguage">
+      <soap:operation soapAction="http://semnox.com/GetLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSplashScreenDetails">
+      <soap:operation soapAction="http://semnox.com/GetSplashScreenDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApkInfo">
+      <soap:operation soapAction="http://semnox.com/GetApkInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLookUps">
+      <soap:operation soapAction="http://semnox.com/GetLookUps" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLookUpValuesList">
+      <soap:operation soapAction="http://semnox.com/GetLookUpValuesList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFormat">
+      <soap:operation soapAction="http://semnox.com/GetFormat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageFromId">
+      <soap:operation soapAction="http://semnox.com/GetMessageFromId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageFromMessageKey">
+      <soap:operation soapAction="http://semnox.com/GetMessageFromMessageKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageFromMessageKeyList">
+      <soap:operation soapAction="http://semnox.com/GetMessageFromMessageKeyList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageFromMessageIdList">
+      <soap:operation soapAction="http://semnox.com/GetMessageFromMessageIdList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckWebService">
+      <soap:operation soapAction="http://semnox.com/CheckWebService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateWebService">
+      <soap:operation soapAction="http://semnox.com/ValidateWebService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateZip">
+      <soap:operation soapAction="http://semnox.com/ValidateZip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListValues">
+      <soap:operation soapAction="http://semnox.com/GetListValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWebsiteConfiguration">
+      <soap:operation soapAction="http://semnox.com/GetWebsiteConfiguration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailTemplate">
+      <soap:operation soapAction="http://semnox.com/GetEmailTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParafaitDefaults">
+      <soap:operation soapAction="http://semnox.com/GetParafaitDefaults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryList">
+      <soap:operation soapAction="http://semnox.com/GetCountryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOffSetDuration">
+      <soap:operation soapAction="http://semnox.com/GetOffSetDuration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteList">
+      <soap:operation soapAction="http://semnox.com/GetSiteList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFirstDataKey">
+      <soap:operation soapAction="http://semnox.com/UpdateFirstDataKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TranslateMessageKeyList">
+      <soap:operation soapAction="http://semnox.com/TranslateMessageKeyList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCCRequestPGW">
+      <soap:operation soapAction="http://semnox.com/UpdateCCRequestPGW" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCCTransactionsPGW">
+      <soap:operation soapAction="http://semnox.com/UpdateCCTransactionsPGW" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguages">
+      <soap:operation soapAction="http://semnox.com/GetLanguages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateToken">
+      <soap:operation soapAction="http://semnox.com/ValidateToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearEnvironmentContext">
+      <soap:operation soapAction="http://semnox.com/ClearEnvironmentContext" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRichContentList">
+      <soap:operation soapAction="http://semnox.com/GetRichContentList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTnCImage">
+      <soap:operation soapAction="http://semnox.com/GetTnCImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultValue">
+      <soap:operation soapAction="http://semnox.com/GetDefaultValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerStatus">
+      <soap:operation soapAction="http://semnox.com/GetServerStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearToken">
+      <soap:operation soapAction="http://semnox.com/ClearToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GenericUtilitiesSoap12" type="tns:GenericUtilitiesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLanguage">
+      <soap12:operation soapAction="http://semnox.com/GetLanguage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSplashScreenDetails">
+      <soap12:operation soapAction="http://semnox.com/GetSplashScreenDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApkInfo">
+      <soap12:operation soapAction="http://semnox.com/GetApkInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLookUps">
+      <soap12:operation soapAction="http://semnox.com/GetLookUps" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLookUpValuesList">
+      <soap12:operation soapAction="http://semnox.com/GetLookUpValuesList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFormat">
+      <soap12:operation soapAction="http://semnox.com/GetFormat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageFromId">
+      <soap12:operation soapAction="http://semnox.com/GetMessageFromId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageFromMessageKey">
+      <soap12:operation soapAction="http://semnox.com/GetMessageFromMessageKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageFromMessageKeyList">
+      <soap12:operation soapAction="http://semnox.com/GetMessageFromMessageKeyList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageFromMessageIdList">
+      <soap12:operation soapAction="http://semnox.com/GetMessageFromMessageIdList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckWebService">
+      <soap12:operation soapAction="http://semnox.com/CheckWebService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateWebService">
+      <soap12:operation soapAction="http://semnox.com/ValidateWebService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateZip">
+      <soap12:operation soapAction="http://semnox.com/ValidateZip" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListValues">
+      <soap12:operation soapAction="http://semnox.com/GetListValues" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWebsiteConfiguration">
+      <soap12:operation soapAction="http://semnox.com/GetWebsiteConfiguration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailTemplate">
+      <soap12:operation soapAction="http://semnox.com/GetEmailTemplate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParafaitDefaults">
+      <soap12:operation soapAction="http://semnox.com/GetParafaitDefaults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryList">
+      <soap12:operation soapAction="http://semnox.com/GetCountryList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOffSetDuration">
+      <soap12:operation soapAction="http://semnox.com/GetOffSetDuration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteList">
+      <soap12:operation soapAction="http://semnox.com/GetSiteList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFirstDataKey">
+      <soap12:operation soapAction="http://semnox.com/UpdateFirstDataKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TranslateMessageKeyList">
+      <soap12:operation soapAction="http://semnox.com/TranslateMessageKeyList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCCRequestPGW">
+      <soap12:operation soapAction="http://semnox.com/UpdateCCRequestPGW" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCCTransactionsPGW">
+      <soap12:operation soapAction="http://semnox.com/UpdateCCTransactionsPGW" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguages">
+      <soap12:operation soapAction="http://semnox.com/GetLanguages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateToken">
+      <soap12:operation soapAction="http://semnox.com/ValidateToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearEnvironmentContext">
+      <soap12:operation soapAction="http://semnox.com/ClearEnvironmentContext" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRichContentList">
+      <soap12:operation soapAction="http://semnox.com/GetRichContentList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTnCImage">
+      <soap12:operation soapAction="http://semnox.com/GetTnCImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultValue">
+      <soap12:operation soapAction="http://semnox.com/GetDefaultValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerStatus">
+      <soap12:operation soapAction="http://semnox.com/GetServerStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearToken">
+      <soap12:operation soapAction="http://semnox.com/ClearToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GenericUtilities">
+    <wsdl:port name="GenericUtilitiesSoap" binding="tns:GenericUtilitiesSoap">
+      <soap:address location="https://playpassws.chuckecheese.com/GenericUtilities.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GenericUtilitiesSoap12" binding="tns:GenericUtilitiesSoap12">
+      <soap12:address location="https://playpassws.chuckecheese.com/GenericUtilities.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

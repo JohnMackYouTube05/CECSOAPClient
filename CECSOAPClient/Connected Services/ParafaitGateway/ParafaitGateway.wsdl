@@ -1,0 +1,1113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://semnox.com/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://semnox.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://semnox.com/">
+      <s:element name="ReturnAllCardEntitlements">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CardNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnAllCardEntitlementsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnAllCardEntitlementsResult" type="tns:ArrayOfEntitlements" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEntitlements">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Entitlements" nillable="true" type="tns:Entitlements" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Entitlements">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="GameName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Balance" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BalanceTime" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ReturnCardEntitlement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CardNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MachineName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EntitlementType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BalanceTime" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnCardEntitlementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ReturnCardEntitlementResult" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="EntitlementType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BalanceTime" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Deduct_x0020_Card_x0020_Entitlement_x0020_-_x0020_Return_x0020_Custom_x0020_Attributes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CardNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MachineName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomAttributes" type="tns:ArrayOfKeyValueStruct" />
+            <s:element minOccurs="0" maxOccurs="1" name="GameType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfKeyValueStruct">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="KeyValueStruct" nillable="true" type="tns:KeyValueStruct" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="KeyValueStruct">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Deduct_x0020_Card_x0020_Entitlement_x0020_-_x0020_Return_x0020_Custom_x0020_AttributesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Deduct_x0020_Card_x0020_Entitlement_x0020_-_x0020_Return_x0020_Custom_x0020_AttributesResult" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomAttributes" type="tns:ArrayOfKeyValueStruct" />
+            <s:element minOccurs="0" maxOccurs="1" name="GameType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeductCardEntitlement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CardNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MachineName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeductCardEntitlementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeductCardEntitlementResult" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnCardBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CardNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnCardBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ReturnCardBalanceResult" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateCourtesyPlay">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CardNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MachineRef" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PlayTime" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateCourtesyPlayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateCourtesyPlayResult" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CashPaymentParafaitPrice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CardNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProductReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="POSReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrxReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CashPaymentParafaitPriceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CashPaymentParafaitPriceResult" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CashPaymentUserPrice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CardNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProductReference" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="POSReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrxReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CashPaymentUserPriceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CashPaymentUserPriceResult" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CashPaymentParafaitPriceNoCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProductReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="POSReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrxReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CashPaymentParafaitPriceNoCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CashPaymentParafaitPriceNoCardResult" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CashPaymentUserPriceNoCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProductReference" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="POSReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrxReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CashPaymentUserPriceNoCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CashPaymentUserPriceNoCardResult" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CardPaymentParafaitPrice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CardNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProductReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="POSReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrxReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CardPaymentParafaitPriceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CardPaymentParafaitPriceResult" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CardPaymentUserPrice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CardNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProductReference" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="POSReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrxReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CardPaymentUserPriceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CardPaymentUserPriceResult" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReversePurchase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TrxId" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="POSReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReversePurchaseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ReversePurchaseResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductPrice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProductReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CurrencySymbol" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductPriceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetProductPriceResult" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CurrencySymbol" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EndGame">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MachineReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EndGameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EndGameResult" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PauseGame">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MachineReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PauseGameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PauseGameResult" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestartGame">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MachineReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestartGameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RestartGameResult" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RechargeCardDllMode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CardNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="CardDeposit" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RechargeCardDllModeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RechargeCardDllModeResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LastMessageDetails">
+        <s:complexType />
+      </s:element>
+      <s:element name="LastMessageDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LastMessageDetailsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="customerid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCardListResult" type="tns:ArrayOfKeyValuePairOfStringInt32" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfKeyValuePairOfStringInt32">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="KeyValuePairOfStringInt32" type="tns:KeyValuePairOfStringInt32" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="KeyValuePairOfStringInt32" />
+      <s:element name="registerCustomerPlayPass">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EMail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PlayPassNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CardId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="registerCustomerPlayPassResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="registerCustomerPlayPassResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CardId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPlayPassDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Playpassnum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPlayPassDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPlayPassDetailsResult" type="tns:ArrayOfKeyValueStruct" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="playPassNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="balancePoints" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getBalanceResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="balancePoints" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ReturnAllCardEntitlementsSoapIn">
+    <wsdl:part name="parameters" element="tns:ReturnAllCardEntitlements" />
+  </wsdl:message>
+  <wsdl:message name="ReturnAllCardEntitlementsSoapOut">
+    <wsdl:part name="parameters" element="tns:ReturnAllCardEntitlementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReturnCardEntitlementSoapIn">
+    <wsdl:part name="parameters" element="tns:ReturnCardEntitlement" />
+  </wsdl:message>
+  <wsdl:message name="ReturnCardEntitlementSoapOut">
+    <wsdl:part name="parameters" element="tns:ReturnCardEntitlementResponse" />
+  </wsdl:message>
+  <wsdl:message name="Deduct_x0020_Card_x0020_Entitlement_x0020_-_x0020_Return_x0020_Custom_x0020_AttributesSoapIn">
+    <wsdl:part name="parameters" element="tns:Deduct_x0020_Card_x0020_Entitlement_x0020_-_x0020_Return_x0020_Custom_x0020_Attributes" />
+  </wsdl:message>
+  <wsdl:message name="Deduct_x0020_Card_x0020_Entitlement_x0020_-_x0020_Return_x0020_Custom_x0020_AttributesSoapOut">
+    <wsdl:part name="parameters" element="tns:Deduct_x0020_Card_x0020_Entitlement_x0020_-_x0020_Return_x0020_Custom_x0020_AttributesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeductCardEntitlementSoapIn">
+    <wsdl:part name="parameters" element="tns:DeductCardEntitlement" />
+  </wsdl:message>
+  <wsdl:message name="DeductCardEntitlementSoapOut">
+    <wsdl:part name="parameters" element="tns:DeductCardEntitlementResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReturnCardBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:ReturnCardBalance" />
+  </wsdl:message>
+  <wsdl:message name="ReturnCardBalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:ReturnCardBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateCourtesyPlaySoapIn">
+    <wsdl:part name="parameters" element="tns:CreateCourtesyPlay" />
+  </wsdl:message>
+  <wsdl:message name="CreateCourtesyPlaySoapOut">
+    <wsdl:part name="parameters" element="tns:CreateCourtesyPlayResponse" />
+  </wsdl:message>
+  <wsdl:message name="CashPaymentParafaitPriceSoapIn">
+    <wsdl:part name="parameters" element="tns:CashPaymentParafaitPrice" />
+  </wsdl:message>
+  <wsdl:message name="CashPaymentParafaitPriceSoapOut">
+    <wsdl:part name="parameters" element="tns:CashPaymentParafaitPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="CashPaymentUserPriceSoapIn">
+    <wsdl:part name="parameters" element="tns:CashPaymentUserPrice" />
+  </wsdl:message>
+  <wsdl:message name="CashPaymentUserPriceSoapOut">
+    <wsdl:part name="parameters" element="tns:CashPaymentUserPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="CashPaymentParafaitPriceNoCardSoapIn">
+    <wsdl:part name="parameters" element="tns:CashPaymentParafaitPriceNoCard" />
+  </wsdl:message>
+  <wsdl:message name="CashPaymentParafaitPriceNoCardSoapOut">
+    <wsdl:part name="parameters" element="tns:CashPaymentParafaitPriceNoCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="CashPaymentUserPriceNoCardSoapIn">
+    <wsdl:part name="parameters" element="tns:CashPaymentUserPriceNoCard" />
+  </wsdl:message>
+  <wsdl:message name="CashPaymentUserPriceNoCardSoapOut">
+    <wsdl:part name="parameters" element="tns:CashPaymentUserPriceNoCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="CardPaymentParafaitPriceSoapIn">
+    <wsdl:part name="parameters" element="tns:CardPaymentParafaitPrice" />
+  </wsdl:message>
+  <wsdl:message name="CardPaymentParafaitPriceSoapOut">
+    <wsdl:part name="parameters" element="tns:CardPaymentParafaitPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="CardPaymentUserPriceSoapIn">
+    <wsdl:part name="parameters" element="tns:CardPaymentUserPrice" />
+  </wsdl:message>
+  <wsdl:message name="CardPaymentUserPriceSoapOut">
+    <wsdl:part name="parameters" element="tns:CardPaymentUserPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReversePurchaseSoapIn">
+    <wsdl:part name="parameters" element="tns:ReversePurchase" />
+  </wsdl:message>
+  <wsdl:message name="ReversePurchaseSoapOut">
+    <wsdl:part name="parameters" element="tns:ReversePurchaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductPriceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductPrice" />
+  </wsdl:message>
+  <wsdl:message name="GetProductPriceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="EndGameSoapIn">
+    <wsdl:part name="parameters" element="tns:EndGame" />
+  </wsdl:message>
+  <wsdl:message name="EndGameSoapOut">
+    <wsdl:part name="parameters" element="tns:EndGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="PauseGameSoapIn">
+    <wsdl:part name="parameters" element="tns:PauseGame" />
+  </wsdl:message>
+  <wsdl:message name="PauseGameSoapOut">
+    <wsdl:part name="parameters" element="tns:PauseGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="RestartGameSoapIn">
+    <wsdl:part name="parameters" element="tns:RestartGame" />
+  </wsdl:message>
+  <wsdl:message name="RestartGameSoapOut">
+    <wsdl:part name="parameters" element="tns:RestartGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="RechargeCardDllModeSoapIn">
+    <wsdl:part name="parameters" element="tns:RechargeCardDllMode" />
+  </wsdl:message>
+  <wsdl:message name="RechargeCardDllModeSoapOut">
+    <wsdl:part name="parameters" element="tns:RechargeCardDllModeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LastMessageDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:LastMessageDetails" />
+  </wsdl:message>
+  <wsdl:message name="LastMessageDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:LastMessageDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCardListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCardList" />
+  </wsdl:message>
+  <wsdl:message name="GetCardListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCardListResponse" />
+  </wsdl:message>
+  <wsdl:message name="registerCustomerPlayPassSoapIn">
+    <wsdl:part name="parameters" element="tns:registerCustomerPlayPass" />
+  </wsdl:message>
+  <wsdl:message name="registerCustomerPlayPassSoapOut">
+    <wsdl:part name="parameters" element="tns:registerCustomerPlayPassResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPlayPassDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:getPlayPassDetails" />
+  </wsdl:message>
+  <wsdl:message name="getPlayPassDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:getPlayPassDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:getBalance" />
+  </wsdl:message>
+  <wsdl:message name="getBalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:getBalanceResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ParafaitGatewaySoap">
+    <wsdl:operation name="ReturnAllCardEntitlements">
+      <wsdl:input message="tns:ReturnAllCardEntitlementsSoapIn" />
+      <wsdl:output message="tns:ReturnAllCardEntitlementsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCardEntitlement">
+      <wsdl:input message="tns:ReturnCardEntitlementSoapIn" />
+      <wsdl:output message="tns:ReturnCardEntitlementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeductCardEntitlementReturnCustomAttributes">
+      <wsdl:input name="Deduct_x0020_Card_x0020_Entitlement_x0020_-_x0020_Return_x0020_Custom_x0020_Attributes" message="tns:Deduct_x0020_Card_x0020_Entitlement_x0020_-_x0020_Return_x0020_Custom_x0020_AttributesSoapIn" />
+      <wsdl:output name="Deduct_x0020_Card_x0020_Entitlement_x0020_-_x0020_Return_x0020_Custom_x0020_Attributes" message="tns:Deduct_x0020_Card_x0020_Entitlement_x0020_-_x0020_Return_x0020_Custom_x0020_AttributesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeductCardEntitlement">
+      <wsdl:input message="tns:DeductCardEntitlementSoapIn" />
+      <wsdl:output message="tns:DeductCardEntitlementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCardBalance">
+      <wsdl:input message="tns:ReturnCardBalanceSoapIn" />
+      <wsdl:output message="tns:ReturnCardBalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCourtesyPlay">
+      <wsdl:input message="tns:CreateCourtesyPlaySoapIn" />
+      <wsdl:output message="tns:CreateCourtesyPlaySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseProductCashPayment">
+      <wsdl:input name="CashPaymentParafaitPrice" message="tns:CashPaymentParafaitPriceSoapIn" />
+      <wsdl:output name="CashPaymentParafaitPrice" message="tns:CashPaymentParafaitPriceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseProductCashPaymentUserPrice">
+      <wsdl:input name="CashPaymentUserPrice" message="tns:CashPaymentUserPriceSoapIn" />
+      <wsdl:output name="CashPaymentUserPrice" message="tns:CashPaymentUserPriceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseProductCashPaymentNoCard">
+      <wsdl:input name="CashPaymentParafaitPriceNoCard" message="tns:CashPaymentParafaitPriceNoCardSoapIn" />
+      <wsdl:output name="CashPaymentParafaitPriceNoCard" message="tns:CashPaymentParafaitPriceNoCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseProductCashPaymentNoCardUserPrice">
+      <wsdl:input name="CashPaymentUserPriceNoCard" message="tns:CashPaymentUserPriceNoCardSoapIn" />
+      <wsdl:output name="CashPaymentUserPriceNoCard" message="tns:CashPaymentUserPriceNoCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseProduct">
+      <wsdl:input name="CardPaymentParafaitPrice" message="tns:CardPaymentParafaitPriceSoapIn" />
+      <wsdl:output name="CardPaymentParafaitPrice" message="tns:CardPaymentParafaitPriceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseProductUserPrice">
+      <wsdl:input name="CardPaymentUserPrice" message="tns:CardPaymentUserPriceSoapIn" />
+      <wsdl:output name="CardPaymentUserPrice" message="tns:CardPaymentUserPriceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReversePurchase">
+      <wsdl:input message="tns:ReversePurchaseSoapIn" />
+      <wsdl:output message="tns:ReversePurchaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductPrice">
+      <wsdl:input message="tns:GetProductPriceSoapIn" />
+      <wsdl:output message="tns:GetProductPriceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EndGame">
+      <wsdl:input message="tns:EndGameSoapIn" />
+      <wsdl:output message="tns:EndGameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PauseGame">
+      <wsdl:input message="tns:PauseGameSoapIn" />
+      <wsdl:output message="tns:PauseGameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestartGame">
+      <wsdl:input message="tns:RestartGameSoapIn" />
+      <wsdl:output message="tns:RestartGameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RechargeCardDllMode">
+      <wsdl:input message="tns:RechargeCardDllModeSoapIn" />
+      <wsdl:output message="tns:RechargeCardDllModeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LastMessageDetails">
+      <wsdl:input message="tns:LastMessageDetailsSoapIn" />
+      <wsdl:output message="tns:LastMessageDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardList">
+      <wsdl:input message="tns:GetCardListSoapIn" />
+      <wsdl:output message="tns:GetCardListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="registerCustomerPlayPass">
+      <wsdl:input message="tns:registerCustomerPlayPassSoapIn" />
+      <wsdl:output message="tns:registerCustomerPlayPassSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPlayPassDetails">
+      <wsdl:input message="tns:getPlayPassDetailsSoapIn" />
+      <wsdl:output message="tns:getPlayPassDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getBalance">
+      <wsdl:input message="tns:getBalanceSoapIn" />
+      <wsdl:output message="tns:getBalanceSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ParafaitGatewaySoap" type="tns:ParafaitGatewaySoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ReturnAllCardEntitlements">
+      <soap:operation soapAction="http://semnox.com/ReturnAllCardEntitlements" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCardEntitlement">
+      <soap:operation soapAction="http://semnox.com/ReturnCardEntitlement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeductCardEntitlementReturnCustomAttributes">
+      <soap:operation soapAction="http://semnox.com/Deduct Card Entitlement - Return Custom Attributes" style="document" />
+      <wsdl:input name="Deduct_x0020_Card_x0020_Entitlement_x0020_-_x0020_Return_x0020_Custom_x0020_Attributes">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Deduct_x0020_Card_x0020_Entitlement_x0020_-_x0020_Return_x0020_Custom_x0020_Attributes">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeductCardEntitlement">
+      <soap:operation soapAction="http://semnox.com/DeductCardEntitlement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCardBalance">
+      <soap:operation soapAction="http://semnox.com/ReturnCardBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCourtesyPlay">
+      <soap:operation soapAction="http://semnox.com/CreateCourtesyPlay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseProductCashPayment">
+      <soap:operation soapAction="http://semnox.com/CashPaymentParafaitPrice" style="document" />
+      <wsdl:input name="CashPaymentParafaitPrice">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CashPaymentParafaitPrice">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseProductCashPaymentUserPrice">
+      <soap:operation soapAction="http://semnox.com/CashPaymentUserPrice" style="document" />
+      <wsdl:input name="CashPaymentUserPrice">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CashPaymentUserPrice">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseProductCashPaymentNoCard">
+      <soap:operation soapAction="http://semnox.com/CashPaymentParafaitPriceNoCard" style="document" />
+      <wsdl:input name="CashPaymentParafaitPriceNoCard">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CashPaymentParafaitPriceNoCard">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseProductCashPaymentNoCardUserPrice">
+      <soap:operation soapAction="http://semnox.com/CashPaymentUserPriceNoCard" style="document" />
+      <wsdl:input name="CashPaymentUserPriceNoCard">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CashPaymentUserPriceNoCard">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseProduct">
+      <soap:operation soapAction="http://semnox.com/CardPaymentParafaitPrice" style="document" />
+      <wsdl:input name="CardPaymentParafaitPrice">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CardPaymentParafaitPrice">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseProductUserPrice">
+      <soap:operation soapAction="http://semnox.com/CardPaymentUserPrice" style="document" />
+      <wsdl:input name="CardPaymentUserPrice">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CardPaymentUserPrice">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReversePurchase">
+      <soap:operation soapAction="http://semnox.com/ReversePurchase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductPrice">
+      <soap:operation soapAction="http://semnox.com/GetProductPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EndGame">
+      <soap:operation soapAction="http://semnox.com/EndGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PauseGame">
+      <soap:operation soapAction="http://semnox.com/PauseGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestartGame">
+      <soap:operation soapAction="http://semnox.com/RestartGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechargeCardDllMode">
+      <soap:operation soapAction="http://semnox.com/RechargeCardDllMode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LastMessageDetails">
+      <soap:operation soapAction="http://semnox.com/LastMessageDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardList">
+      <soap:operation soapAction="http://semnox.com/GetCardList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerCustomerPlayPass">
+      <soap:operation soapAction="http://semnox.com/registerCustomerPlayPass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPlayPassDetails">
+      <soap:operation soapAction="http://semnox.com/getPlayPassDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBalance">
+      <soap:operation soapAction="http://semnox.com/getBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ParafaitGatewaySoap12" type="tns:ParafaitGatewaySoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ReturnAllCardEntitlements">
+      <soap12:operation soapAction="http://semnox.com/ReturnAllCardEntitlements" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCardEntitlement">
+      <soap12:operation soapAction="http://semnox.com/ReturnCardEntitlement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeductCardEntitlementReturnCustomAttributes">
+      <soap12:operation soapAction="http://semnox.com/Deduct Card Entitlement - Return Custom Attributes" style="document" />
+      <wsdl:input name="Deduct_x0020_Card_x0020_Entitlement_x0020_-_x0020_Return_x0020_Custom_x0020_Attributes">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Deduct_x0020_Card_x0020_Entitlement_x0020_-_x0020_Return_x0020_Custom_x0020_Attributes">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeductCardEntitlement">
+      <soap12:operation soapAction="http://semnox.com/DeductCardEntitlement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCardBalance">
+      <soap12:operation soapAction="http://semnox.com/ReturnCardBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCourtesyPlay">
+      <soap12:operation soapAction="http://semnox.com/CreateCourtesyPlay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseProductCashPayment">
+      <soap12:operation soapAction="http://semnox.com/CashPaymentParafaitPrice" style="document" />
+      <wsdl:input name="CashPaymentParafaitPrice">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CashPaymentParafaitPrice">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseProductCashPaymentUserPrice">
+      <soap12:operation soapAction="http://semnox.com/CashPaymentUserPrice" style="document" />
+      <wsdl:input name="CashPaymentUserPrice">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CashPaymentUserPrice">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseProductCashPaymentNoCard">
+      <soap12:operation soapAction="http://semnox.com/CashPaymentParafaitPriceNoCard" style="document" />
+      <wsdl:input name="CashPaymentParafaitPriceNoCard">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CashPaymentParafaitPriceNoCard">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseProductCashPaymentNoCardUserPrice">
+      <soap12:operation soapAction="http://semnox.com/CashPaymentUserPriceNoCard" style="document" />
+      <wsdl:input name="CashPaymentUserPriceNoCard">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CashPaymentUserPriceNoCard">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseProduct">
+      <soap12:operation soapAction="http://semnox.com/CardPaymentParafaitPrice" style="document" />
+      <wsdl:input name="CardPaymentParafaitPrice">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CardPaymentParafaitPrice">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseProductUserPrice">
+      <soap12:operation soapAction="http://semnox.com/CardPaymentUserPrice" style="document" />
+      <wsdl:input name="CardPaymentUserPrice">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CardPaymentUserPrice">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReversePurchase">
+      <soap12:operation soapAction="http://semnox.com/ReversePurchase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductPrice">
+      <soap12:operation soapAction="http://semnox.com/GetProductPrice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EndGame">
+      <soap12:operation soapAction="http://semnox.com/EndGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PauseGame">
+      <soap12:operation soapAction="http://semnox.com/PauseGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestartGame">
+      <soap12:operation soapAction="http://semnox.com/RestartGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechargeCardDllMode">
+      <soap12:operation soapAction="http://semnox.com/RechargeCardDllMode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LastMessageDetails">
+      <soap12:operation soapAction="http://semnox.com/LastMessageDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardList">
+      <soap12:operation soapAction="http://semnox.com/GetCardList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerCustomerPlayPass">
+      <soap12:operation soapAction="http://semnox.com/registerCustomerPlayPass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPlayPassDetails">
+      <soap12:operation soapAction="http://semnox.com/getPlayPassDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBalance">
+      <soap12:operation soapAction="http://semnox.com/getBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ParafaitGateway">
+    <wsdl:port name="ParafaitGatewaySoap" binding="tns:ParafaitGatewaySoap">
+      <soap:address location="https://playpassws.chuckecheese.com/ParafaitGateway.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ParafaitGatewaySoap12" binding="tns:ParafaitGatewaySoap12">
+      <soap12:address location="https://playpassws.chuckecheese.com/ParafaitGateway.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

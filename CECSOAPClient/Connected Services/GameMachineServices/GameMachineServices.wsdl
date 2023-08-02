@@ -1,0 +1,2219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://semnox.com/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://semnox.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://semnox.com/">
+      <s:element name="GetGameProfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGameProfileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGameProfileResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGamesOnProfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="gameprofileId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGamesOnProfileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGamesOnProfileResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateGameMachine">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="macaddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="machineId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateGameMachineResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidateGameMachineResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGameDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="macAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="machineId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGameDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGameDetailsResult" type="tns:ArrayOfKeyValueStruct" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfKeyValueStruct">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="KeyValueStruct" nillable="true" type="tns:KeyValueStruct" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="KeyValueStruct">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PlayGame">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="macAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cardNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loginId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="machineIdStrg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayGameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayGameResult" type="tns:ArrayOfKeyValueStruct" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayGameByDevice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="deviceId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="direction" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="codeType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayGameByDeviceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayGameByDeviceResult" type="tns:KeyValueStruct" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMachineList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMachineListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMachineListResult" type="tns:ArrayOfMachineStruct" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMachineStruct">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MachineStruct" nillable="true" type="tns:MachineStruct" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MachineStruct">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MachineId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MachineName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSiteMachineList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="siteId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiteMachineListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSiteMachineListResult" type="tns:ArrayOfMachineStruct" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMifareGameDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cardNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="machineId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="gamePrice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="playTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="creditsUsed" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bonusUsed" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="courtesyUsed" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="creditPlusUsed" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="gameUsed" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="discountPercent" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="balanceRemaining" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="balanceGames" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="playUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="uniqId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="guidVal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="threadId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMifareGameDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveMifareGameDetailsResult" type="tns:ArrayOfKeyValueStruct" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMachinesList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMachinesListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMachinesListResult" type="tns:ArrayOfMachineDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMachineDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MachineDTO" nillable="true" type="tns:MachineDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MachineDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MachineId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MachineName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MachineAddress" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GameId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TicketAllowed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsActive" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TimerMachine" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TimerInterval" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GroupTimer" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberOfCoins" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TicketMode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CustomDataSetId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ThemeId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ThemeNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShowAd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TCPPort" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MacAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SerialNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MachineTag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SoftwareVersion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PurchasePrice" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReaderType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PayoutCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="InventoryLocationId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReferenceMachineId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExternalMachineReference" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CommunicationSuccessRatio" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActiveDisplayThemeId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PreviousMachineId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NextMachineId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GameMachineAttributes" type="tns:ArrayOfMachineAttributeDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="MachineCommunicationLogDTO" type="tns:MachineCommunicationLogDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="MachineNameGameName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GameName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HubName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MachineNameGameNameHubName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MachineNameHubName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MachineInputDevicesDTOList" type="tns:ArrayOfMachineInputDevicesDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="MachineTransferLogDTOList" type="tns:ArrayOfMachineTransferLogDTO" />
+          <s:element minOccurs="1" maxOccurs="1" name="MachineArrivalDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfMachineAttributeDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MachineAttributeDTO" nillable="true" type="tns:MachineAttributeDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MachineAttributeDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AttributeNameText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttributeValue" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AttributeName" type="tns:MachineAttribute" />
+          <s:element minOccurs="1" maxOccurs="1" name="AttributeId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsFlag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsSoftwareAttribute" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContextOfAttribute" type="tns:AttributeContext" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="MachineAttribute">
+        <s:restriction base="s:string">
+          <s:enumeration value="START_IN_PHYSICAL_TICKET_MODE" />
+          <s:enumeration value="SHOW_AD" />
+          <s:enumeration value="NUMBER_OF_COINS" />
+          <s:enumeration value="COIN_PULSE_WIDTH" />
+          <s:enumeration value="TICKET_PULSE_WIDTH" />
+          <s:enumeration value="COIN_PULSE_GAP" />
+          <s:enumeration value="TICKET_PULSE_GAP" />
+          <s:enumeration value="SENSOR_INTERVAL" />
+          <s:enumeration value="POWER_ON_TICKET_DELAY" />
+          <s:enumeration value="DISABLE_TICKETS" />
+          <s:enumeration value="REVERSE_DISPLAY_DIRECTION" />
+          <s:enumeration value="SHOW_STATIC_AD" />
+          <s:enumeration value="DEFAULT_THEME" />
+          <s:enumeration value="TICKET_EATER" />
+          <s:enumeration value="TICKET_EATER_CARD_WAIT_INTERVAL" />
+          <s:enumeration value="TICKET_EATER_TICKET_WAIT_INTERVAL" />
+          <s:enumeration value="START_SCREEN_NUMBER" />
+          <s:enumeration value="COIN_PUSHER_MACHINE" />
+          <s:enumeration value="BALANCE_DELAY" />
+          <s:enumeration value="DEBUG_MODE" />
+          <s:enumeration value="ENABLE_RESET_PULSE" />
+          <s:enumeration value="CARD_RETRIES" />
+          <s:enumeration value="MIN_SECONDS_BETWEEN_REPEAT_PLAY" />
+          <s:enumeration value="DISPLAY_LANGUAGE" />
+          <s:enumeration value="QUEUE_SETUP_REQUIRED" />
+          <s:enumeration value="MAX_TICKETS_PER_GAMEPLAY" />
+          <s:enumeration value="ENABLE_EXT_ANTENNA" />
+          <s:enumeration value="OUT_OF_SERVICE" />
+          <s:enumeration value="OUT_OF_SERVICE_THEME" />
+          <s:enumeration value="GAMEPLAY_DURATION" />
+          <s:enumeration value="CARD_RETIRES" />
+          <s:enumeration value="FREE_PLAY_THEME" />
+          <s:enumeration value="COIN_INTERRUPT_DELAY" />
+          <s:enumeration value="INITIAL_LED_PATTERN" />
+          <s:enumeration value="READER_VOLUME" />
+          <s:enumeration value="TICKET_DELAY" />
+          <s:enumeration value="ENABLE_INVALID_LIGHT" />
+          <s:enumeration value="SHOW_BIG_BALANCE" />
+          <s:enumeration value="AD_DELAY" />
+          <s:enumeration value="AD_INTERVAL" />
+          <s:enumeration value="AD_IMPRESSION" />
+          <s:enumeration value="GAMEPLAY_MULTIPLIER" />
+          <s:enumeration value="DYNAMIC_QUERY_EVENT_FREQUENCY" />
+          <s:enumeration value="DATA_REFRESH_FREQUENCY" />
+          <s:enumeration value="PRICE_REFRESH_FREQUENCY" />
+          <s:enumeration value="RESOLUTION_X" />
+          <s:enumeration value="RESOLUTION_Y" />
+          <s:enumeration value="AUDIO_THEME_NUMBER" />
+          <s:enumeration value="TICKET_MULTIPLIER" />
+          <s:enumeration value="ATTENDANCE_READER" />
+          <s:enumeration value="MULTI_GAME_PLAY_SYSTEM" />
+          <s:enumeration value="MULTI_GAME_PLAY_WAIT_PERIOD" />
+          <s:enumeration value="DEFAULT_MULTI_GAME_PLAY_VALUE" />
+          <s:enumeration value="CHECK_TICKET_INPUT_SIGNAL_REBOOT" />
+          <s:enumeration value="CHECK_TICKET_NOTCH_OUTPUT_SIGNAL" />
+          <s:enumeration value="IS_CEC" />
+          <s:enumeration value="MACHINE_NAME_DISPLAY_FREQUENCY" />
+          <s:enumeration value="ENABLE_INIT_SOUND_TAP_CARD" />
+          <s:enumeration value="CARD_PRIORITY" />
+          <s:enumeration value="ENABLE_INHIBIT_LINE" />
+          <s:enumeration value="PAUSE_TIME_READER" />
+          <s:enumeration value="ENFORCE_ETICKET_COIN_PLAY" />
+          <s:enumeration value="VERIFY_AUTH_FOR_ULC" />
+          <s:enumeration value="REFUND_READER" />
+          <s:enumeration value="COIN_PULSE_DIRECTION" />
+          <s:enumeration value="LAN_BOARD" />
+          <s:enumeration value="SLOT_READER" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="AttributeContext">
+        <s:restriction base="s:string">
+          <s:enumeration value="SYSTEM" />
+          <s:enumeration value="GAME_PROFILE" />
+          <s:enumeration value="GAME" />
+          <s:enumeration value="MACHINE" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="MachineCommunicationLogDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MachinesCommunicationLogId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MachineId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CommunicationSuccessRatio" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastServerCommunicatedTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfMachineInputDevicesDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MachineInputDevicesDTO" nillable="true" type="tns:MachineInputDevicesDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MachineInputDevicesDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DeviceId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeviceName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeviceTypeId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeviceModelId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MachineId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PortNo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MacAddress" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FPTemplateFormat" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfMachineTransferLogDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MachineTransferLogDTO" nillable="true" type="tns:MachineTransferLogDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MachineTransferLogDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MachineTransferLogId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MachineId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FromSiteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ToSiteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransferDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransferedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FromMachineStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToMachineStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SourceMachineGUID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TargetMachineGUID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remarks" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="MachineDTOList" type="tns:ArrayOfMachineDTO" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOutofServiceMachines">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetOutofServiceMachinesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOutofServiceMachinesResult" type="tns:ArrayOfMachineDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNoGamePlayMarkedOutOfServiceMachines">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetNoGamePlayMarkedOutOfServiceMachinesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNoGamePlayMarkedOutOfServiceMachinesResult" type="tns:ArrayOfMachineDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNoGamePlayNotMarkedOutOfServiceMachines">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetNoGamePlayNotMarkedOutOfServiceMachinesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNoGamePlayNotMarkedOutOfServiceMachinesResult" type="tns:ArrayOfMachineDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMachinesWithNoCoinDrops">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMachinesWithNoCoinDropsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMachinesWithNoCoinDropsResult" type="tns:ArrayOfMachineDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMachinesWithOneCoinDrop">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMachinesWithOneCoinDropResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMachinesWithOneCoinDropResult" type="tns:ArrayOfMachineDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMachinesWithTwoCoinDrops">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMachinesWithTwoCoinDropsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMachinesWithTwoCoinDropsResult" type="tns:ArrayOfMachineDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMachineDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="macAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loginId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="machineObj" type="tns:MachineDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMachineDetailsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTechReports">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTechReportsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTechReportsResult" type="tns:ArrayOfKeyValueStruct" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOOSReasonCodes">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetOOSReasonCodesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOOSReasonCodesResult" type="tns:ArrayOfKeyValueStruct" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMachineStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="macAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loginId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="machineObj" type="tns:MachineDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="reason" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="remarks" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMachineStatusResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetGamesList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetGamesListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGamesListResult" type="tns:ArrayOfGameDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfGameDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GameDTO" nillable="true" type="tns:GameDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GameDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="GameId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GameName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GameDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GameCompanyName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PlayCredits" nillable="true" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="VipPlayCredits" nillable="true" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GameProfileId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InternetKey" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RepeatPlayDiscount" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserIdentifier" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CustomDataSetId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GameAttributes" type="tns:ArrayOfMachineAttributeDTO" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProductId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="GameTag" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAPList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAPListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAPListResult" type="tns:ArrayOfHubDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfHubDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HubDTO" nillable="true" type="tns:HubDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HubDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MasterId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MasterName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PortNumber" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BaudRate" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Frequency" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServerMachine" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DirectMode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TCPPort" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MACAddress" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="RestartAP" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastupdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastupdateDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataRate" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegisterId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegisterValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConfigureHubType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsEByte" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="EBYTEDTO" type="tns:EBYTEDTO" />
+          <s:element minOccurs="1" maxOccurs="1" name="MachineCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="HubNameWithMachineCount" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EBYTEDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UARTParity" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataRate" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransmissionMode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IODriveMode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WakeupTime" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecSwitch" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OutputPower" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RestartAP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="macAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loginId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessPoint" type="tns:HubDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestartAPResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetReaderThemesList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetReaderThemesListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReaderThemesListResult" type="tns:ArrayOfThemeDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfThemeDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ThemeDTO" nillable="true" type="tns:ThemeDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ThemeDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TypeId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InitialScreenId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ThemeNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ScreenTransitionsDTOList" type="tns:ArrayOfScreenTransitionsDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="ScreenSetupDTOList" type="tns:ArrayOfScreenSetupDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="ThemeNameWithThemeNumber" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfScreenTransitionsDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ScreenTransitionsDTO" nillable="true" type="tns:ScreenTransitionsDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ScreenTransitionsDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ThemeId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FromScreenId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EventId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ToScreenId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventDTO" type="tns:EventDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EventDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TypeId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Parameter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfScreenSetupDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ScreenSetupDTO" nillable="true" type="tns:ScreenSetupDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ScreenSetupDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ScreenId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Alignment" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ScrDivHorizontal" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ScrDivVertical" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ScreenZoneDefSetupDTOList" type="tns:ArrayOfScreenZoneDefSetupDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfScreenZoneDefSetupDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ScreenZoneDefSetupDTO" nillable="true" type="tns:ScreenZoneDefSetupDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ScreenZoneDefSetupDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ZoneId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ScreenId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DisplayOrder" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TopLeft" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="BottomRight" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="TopOffsetY" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BottomOffsetY" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LeftOffsetX" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RightOffsetX" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ScreenZoneContentMapDTOList" type="tns:ArrayOfScreenZoneContentMapDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfScreenZoneContentMapDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ScreenZoneContentMapDTO" nillable="true" type="tns:ScreenZoneContentMapDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ScreenZoneContentMapDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ScreenContentId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ZoneId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContentTypeId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContentType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContentId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DisplayOrder" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BackImage" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BackColor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BorderSize" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BorderColor" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImgSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImgAlignment" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImgRefreshSecs" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="VideoRepeat" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LookupRefreshSecs" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LookupHeaderDisplay" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TickerScrollDirection" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TickerSpeed" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TickerRefreshSecs" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="DSLookupDTO" type="tns:DSLookupDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="TickerDTO" type="tns:TickerDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="SignagePatternDTO" type="tns:SignagePatternDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="MediaDTO" type="tns:MediaDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="BackImageFileName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DSLookupDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DSLookupID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DSLookupName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DynamicFlag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Query" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RefreshDataSecs" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MoveDataSecs" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OffsetX" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OffsetY" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HDR12Spacing" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HDR23Spacing" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HDR34Spacing" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HDR45Spacing" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TextHeight" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TextWidth" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="DSignageLookupValuesDTOList" type="tns:ArrayOfDSignageLookupValuesDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDSignageLookupValuesDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DSignageLookupValuesDTO" nillable="true" type="tns:DSignageLookupValuesDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DSignageLookupValuesDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DSLookupValueID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DSLookupID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValDisplayOrder" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Val1TextColor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Val1Font" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val1DataType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val1Indentation" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Val1BackColor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Val1Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Val2TextColor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Val2Font" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val2DataType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val2Indentation" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Val2BackColor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Val2Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Val3TextColor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Val3Font" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val3DataType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val3Indentation" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Val3BackColor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Val3Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Val4TextColor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Val4Font" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val4DataType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val4Indentation" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Val4BackColor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Val4Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Val5TextColor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Val5Font" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val5DataType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Val5Indentation" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Val5BackColor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Val5Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BeforeSpacingRows" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TickerDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TickerId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="TickerText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TextColor" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ScrollDirection" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Font" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BackColor" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TickerSpeed" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SignagePatternDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SignagePatternId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pattern" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdatedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MediaDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MediaId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TypeId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SizeXinPixels" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SizeYinPixels" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedUser" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsOverrideFile" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMachineDTOList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="machineParams" type="tns:MachineParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MachineParams">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MachineName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GameId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActiveFlag" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MacAddress" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CalculateActiveTheme" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMachineDTOListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMachineDTOListResult" type="tns:ArrayOfMachineDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPriceDTO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="machineId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPriceDTOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPriceDTOResult" type="tns:PriceDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PriceDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="GameId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PlayCredits" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="VipPlayCredits" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="FormattedPlayCredits" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FormattedVipPlayPlayCredits" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMachineLookupValuesDTOList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMachineLookupValuesDTOListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMachineLookupValuesDTOListResult" type="tns:ArrayOfLookupValuesDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLookupValuesDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LookupValuesDTO" nillable="true" type="tns:LookupValuesDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LookupValuesDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LookupValueId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LookupId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LookupName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LookupValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PlayGameWithMachineIdAndCardNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="machineId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="cardNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="noOfGamePlays" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayGameWithMachineIdAndCardNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayGameWithMachineIdAndCardNumberResult" type="tns:GamePlayDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GamePlayDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="GameplayId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MachineId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CardId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Credits" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Courtesy" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Bonus" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Time" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="PlayDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TicketCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TicketMode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CardGame" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CPCardBalance" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CPCredits" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CPBonus" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CardGameId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PayoutCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GamePlayInfoDTOList" type="tns:ArrayOfGamePlayInfoDTO" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdatedDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PromotionId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PlayRequestTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Game" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Machine" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ETickets" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ManualTickets" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TicketEaterTickets" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Site" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TaskId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfGamePlayInfoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GamePlayInfoDTO" nillable="true" type="tns:GamePlayInfoDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GamePlayInfoDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="GameplayId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsPaused" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PauseStartTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPauseTime" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="GameEndTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdateBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="PlayTime" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReaderRecordId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GamePlayData" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateTickets">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="machineId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="cardNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="noOfTickets" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTicketsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateTicketsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateCoinPusherGamePlay">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="machineId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="cardNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateCoinPusherGamePlayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateCoinPusherGamePlayResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLatestSoftwareVersion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="macAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLatestSoftwareVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLatestSoftwareVersionResult" type="tns:SoftwareVersionDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SoftwareVersionDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="VersionNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsActive" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PingServer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="macAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PingServerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PingServerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGameMachineParafaitDefaultsDTOList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="macAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parafaitDefaultNameList" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetGameMachineParafaitDefaultsDTOListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGameMachineParafaitDefaultsDTOListResult" type="tns:ArrayOfParafaitDefaultsDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfParafaitDefaultsDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ParafaitDefaultsDTO" nillable="true" type="tns:ParafaitDefaultsDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ParafaitDefaultsDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DefaultValueId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DefaultValueName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DefaultValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ScreenGroup" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataTypeId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserLevel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POSLevel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsProtected" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetGameProfileSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGameProfile" />
+  </wsdl:message>
+  <wsdl:message name="GetGameProfileSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGameProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGamesOnProfileSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGamesOnProfile" />
+  </wsdl:message>
+  <wsdl:message name="GetGamesOnProfileSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGamesOnProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateGameMachineSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateGameMachine" />
+  </wsdl:message>
+  <wsdl:message name="ValidateGameMachineSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateGameMachineResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGameDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGameDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetGameDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGameDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PlayGameSoapIn">
+    <wsdl:part name="parameters" element="tns:PlayGame" />
+  </wsdl:message>
+  <wsdl:message name="PlayGameSoapOut">
+    <wsdl:part name="parameters" element="tns:PlayGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="PlayGameByDeviceSoapIn">
+    <wsdl:part name="parameters" element="tns:PlayGameByDevice" />
+  </wsdl:message>
+  <wsdl:message name="PlayGameByDeviceSoapOut">
+    <wsdl:part name="parameters" element="tns:PlayGameByDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMachineListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMachineList" />
+  </wsdl:message>
+  <wsdl:message name="GetMachineListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMachineListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteMachineListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSiteMachineList" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteMachineListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSiteMachineListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveMifareGameDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveMifareGameDetails" />
+  </wsdl:message>
+  <wsdl:message name="SaveMifareGameDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveMifareGameDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMachinesListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMachinesList" />
+  </wsdl:message>
+  <wsdl:message name="GetMachinesListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMachinesListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOutofServiceMachinesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOutofServiceMachines" />
+  </wsdl:message>
+  <wsdl:message name="GetOutofServiceMachinesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOutofServiceMachinesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNoGamePlayMarkedOutOfServiceMachinesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNoGamePlayMarkedOutOfServiceMachines" />
+  </wsdl:message>
+  <wsdl:message name="GetNoGamePlayMarkedOutOfServiceMachinesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNoGamePlayMarkedOutOfServiceMachinesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNoGamePlayNotMarkedOutOfServiceMachinesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNoGamePlayNotMarkedOutOfServiceMachines" />
+  </wsdl:message>
+  <wsdl:message name="GetNoGamePlayNotMarkedOutOfServiceMachinesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNoGamePlayNotMarkedOutOfServiceMachinesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMachinesWithNoCoinDropsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMachinesWithNoCoinDrops" />
+  </wsdl:message>
+  <wsdl:message name="GetMachinesWithNoCoinDropsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMachinesWithNoCoinDropsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMachinesWithOneCoinDropSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMachinesWithOneCoinDrop" />
+  </wsdl:message>
+  <wsdl:message name="GetMachinesWithOneCoinDropSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMachinesWithOneCoinDropResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMachinesWithTwoCoinDropsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMachinesWithTwoCoinDrops" />
+  </wsdl:message>
+  <wsdl:message name="GetMachinesWithTwoCoinDropsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMachinesWithTwoCoinDropsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMachineDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateMachineDetails" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMachineDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateMachineDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTechReportsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTechReports" />
+  </wsdl:message>
+  <wsdl:message name="GetTechReportsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTechReportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOOSReasonCodesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOOSReasonCodes" />
+  </wsdl:message>
+  <wsdl:message name="GetOOSReasonCodesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOOSReasonCodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMachineStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateMachineStatus" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMachineStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateMachineStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGamesListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGamesList" />
+  </wsdl:message>
+  <wsdl:message name="GetGamesListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGamesListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAPListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAPList" />
+  </wsdl:message>
+  <wsdl:message name="GetAPListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAPListResponse" />
+  </wsdl:message>
+  <wsdl:message name="RestartAPSoapIn">
+    <wsdl:part name="parameters" element="tns:RestartAP" />
+  </wsdl:message>
+  <wsdl:message name="RestartAPSoapOut">
+    <wsdl:part name="parameters" element="tns:RestartAPResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReaderThemesListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReaderThemesList" />
+  </wsdl:message>
+  <wsdl:message name="GetReaderThemesListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReaderThemesListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMachineDTOListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMachineDTOList" />
+  </wsdl:message>
+  <wsdl:message name="GetMachineDTOListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMachineDTOListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPriceDTOSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPriceDTO" />
+  </wsdl:message>
+  <wsdl:message name="GetPriceDTOSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPriceDTOResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMachineLookupValuesDTOListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMachineLookupValuesDTOList" />
+  </wsdl:message>
+  <wsdl:message name="GetMachineLookupValuesDTOListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMachineLookupValuesDTOListResponse" />
+  </wsdl:message>
+  <wsdl:message name="PlayGameWithMachineIdAndCardNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:PlayGameWithMachineIdAndCardNumber" />
+  </wsdl:message>
+  <wsdl:message name="PlayGameWithMachineIdAndCardNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:PlayGameWithMachineIdAndCardNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTicketsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateTickets" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTicketsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateTicketsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateCoinPusherGamePlaySoapIn">
+    <wsdl:part name="parameters" element="tns:CreateCoinPusherGamePlay" />
+  </wsdl:message>
+  <wsdl:message name="CreateCoinPusherGamePlaySoapOut">
+    <wsdl:part name="parameters" element="tns:CreateCoinPusherGamePlayResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestSoftwareVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLatestSoftwareVersion" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestSoftwareVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLatestSoftwareVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="PingServerSoapIn">
+    <wsdl:part name="parameters" element="tns:PingServer" />
+  </wsdl:message>
+  <wsdl:message name="PingServerSoapOut">
+    <wsdl:part name="parameters" element="tns:PingServerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGameMachineParafaitDefaultsDTOListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGameMachineParafaitDefaultsDTOList" />
+  </wsdl:message>
+  <wsdl:message name="GetGameMachineParafaitDefaultsDTOListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGameMachineParafaitDefaultsDTOListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="GameMachineServicesSoap">
+    <wsdl:operation name="GetGameProfile">
+      <wsdl:input message="tns:GetGameProfileSoapIn" />
+      <wsdl:output message="tns:GetGameProfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGamesOnProfile">
+      <wsdl:input message="tns:GetGamesOnProfileSoapIn" />
+      <wsdl:output message="tns:GetGamesOnProfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateGameMachine">
+      <wsdl:input message="tns:ValidateGameMachineSoapIn" />
+      <wsdl:output message="tns:ValidateGameMachineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGameDetails">
+      <wsdl:input message="tns:GetGameDetailsSoapIn" />
+      <wsdl:output message="tns:GetGameDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayGame">
+      <wsdl:input message="tns:PlayGameSoapIn" />
+      <wsdl:output message="tns:PlayGameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayGameByDevice">
+      <wsdl:input message="tns:PlayGameByDeviceSoapIn" />
+      <wsdl:output message="tns:PlayGameByDeviceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineList">
+      <wsdl:input message="tns:GetMachineListSoapIn" />
+      <wsdl:output message="tns:GetMachineListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteMachineList">
+      <wsdl:input message="tns:GetSiteMachineListSoapIn" />
+      <wsdl:output message="tns:GetSiteMachineListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveMifareGameDetails">
+      <wsdl:input message="tns:SaveMifareGameDetailsSoapIn" />
+      <wsdl:output message="tns:SaveMifareGameDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMachinesList">
+      <wsdl:input message="tns:GetMachinesListSoapIn" />
+      <wsdl:output message="tns:GetMachinesListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOutofServiceMachines">
+      <wsdl:input message="tns:GetOutofServiceMachinesSoapIn" />
+      <wsdl:output message="tns:GetOutofServiceMachinesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNoGamePlayMarkedOutOfServiceMachines">
+      <wsdl:input message="tns:GetNoGamePlayMarkedOutOfServiceMachinesSoapIn" />
+      <wsdl:output message="tns:GetNoGamePlayMarkedOutOfServiceMachinesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNoGamePlayNotMarkedOutOfServiceMachines">
+      <wsdl:input message="tns:GetNoGamePlayNotMarkedOutOfServiceMachinesSoapIn" />
+      <wsdl:output message="tns:GetNoGamePlayNotMarkedOutOfServiceMachinesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMachinesWithNoCoinDrops">
+      <wsdl:input message="tns:GetMachinesWithNoCoinDropsSoapIn" />
+      <wsdl:output message="tns:GetMachinesWithNoCoinDropsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMachinesWithOneCoinDrop">
+      <wsdl:input message="tns:GetMachinesWithOneCoinDropSoapIn" />
+      <wsdl:output message="tns:GetMachinesWithOneCoinDropSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMachinesWithTwoCoinDrops">
+      <wsdl:input message="tns:GetMachinesWithTwoCoinDropsSoapIn" />
+      <wsdl:output message="tns:GetMachinesWithTwoCoinDropsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMachineDetails">
+      <wsdl:input message="tns:UpdateMachineDetailsSoapIn" />
+      <wsdl:output message="tns:UpdateMachineDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTechReports">
+      <wsdl:input message="tns:GetTechReportsSoapIn" />
+      <wsdl:output message="tns:GetTechReportsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOOSReasonCodes">
+      <wsdl:input message="tns:GetOOSReasonCodesSoapIn" />
+      <wsdl:output message="tns:GetOOSReasonCodesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMachineStatus">
+      <wsdl:input message="tns:UpdateMachineStatusSoapIn" />
+      <wsdl:output message="tns:UpdateMachineStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGamesList">
+      <wsdl:input message="tns:GetGamesListSoapIn" />
+      <wsdl:output message="tns:GetGamesListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAPList">
+      <wsdl:input message="tns:GetAPListSoapIn" />
+      <wsdl:output message="tns:GetAPListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestartAP">
+      <wsdl:input message="tns:RestartAPSoapIn" />
+      <wsdl:output message="tns:RestartAPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReaderThemesList">
+      <wsdl:input message="tns:GetReaderThemesListSoapIn" />
+      <wsdl:output message="tns:GetReaderThemesListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineDTOList">
+      <wsdl:input message="tns:GetMachineDTOListSoapIn" />
+      <wsdl:output message="tns:GetMachineDTOListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceDTO">
+      <wsdl:input message="tns:GetPriceDTOSoapIn" />
+      <wsdl:output message="tns:GetPriceDTOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineLookupValuesDTOList">
+      <wsdl:input message="tns:GetMachineLookupValuesDTOListSoapIn" />
+      <wsdl:output message="tns:GetMachineLookupValuesDTOListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayGameWithMachineIdAndCardNumber">
+      <wsdl:input message="tns:PlayGameWithMachineIdAndCardNumberSoapIn" />
+      <wsdl:output message="tns:PlayGameWithMachineIdAndCardNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTickets">
+      <wsdl:input message="tns:UpdateTicketsSoapIn" />
+      <wsdl:output message="tns:UpdateTicketsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCoinPusherGamePlay">
+      <wsdl:input message="tns:CreateCoinPusherGamePlaySoapIn" />
+      <wsdl:output message="tns:CreateCoinPusherGamePlaySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestSoftwareVersion">
+      <wsdl:input message="tns:GetLatestSoftwareVersionSoapIn" />
+      <wsdl:output message="tns:GetLatestSoftwareVersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PingServer">
+      <wsdl:input message="tns:PingServerSoapIn" />
+      <wsdl:output message="tns:PingServerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGameMachineParafaitDefaultsDTOList">
+      <wsdl:input message="tns:GetGameMachineParafaitDefaultsDTOListSoapIn" />
+      <wsdl:output message="tns:GetGameMachineParafaitDefaultsDTOListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GameMachineServicesSoap" type="tns:GameMachineServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetGameProfile">
+      <soap:operation soapAction="http://semnox.com/GetGameProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGamesOnProfile">
+      <soap:operation soapAction="http://semnox.com/GetGamesOnProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateGameMachine">
+      <soap:operation soapAction="http://semnox.com/ValidateGameMachine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameDetails">
+      <soap:operation soapAction="http://semnox.com/GetGameDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayGame">
+      <soap:operation soapAction="http://semnox.com/PlayGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayGameByDevice">
+      <soap:operation soapAction="http://semnox.com/PlayGameByDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineList">
+      <soap:operation soapAction="http://semnox.com/GetMachineList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteMachineList">
+      <soap:operation soapAction="http://semnox.com/GetSiteMachineList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMifareGameDetails">
+      <soap:operation soapAction="http://semnox.com/SaveMifareGameDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachinesList">
+      <soap:operation soapAction="http://semnox.com/GetMachinesList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutofServiceMachines">
+      <soap:operation soapAction="http://semnox.com/GetOutofServiceMachines" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNoGamePlayMarkedOutOfServiceMachines">
+      <soap:operation soapAction="http://semnox.com/GetNoGamePlayMarkedOutOfServiceMachines" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNoGamePlayNotMarkedOutOfServiceMachines">
+      <soap:operation soapAction="http://semnox.com/GetNoGamePlayNotMarkedOutOfServiceMachines" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachinesWithNoCoinDrops">
+      <soap:operation soapAction="http://semnox.com/GetMachinesWithNoCoinDrops" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachinesWithOneCoinDrop">
+      <soap:operation soapAction="http://semnox.com/GetMachinesWithOneCoinDrop" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachinesWithTwoCoinDrops">
+      <soap:operation soapAction="http://semnox.com/GetMachinesWithTwoCoinDrops" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMachineDetails">
+      <soap:operation soapAction="http://semnox.com/UpdateMachineDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTechReports">
+      <soap:operation soapAction="http://semnox.com/GetTechReports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOOSReasonCodes">
+      <soap:operation soapAction="http://semnox.com/GetOOSReasonCodes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMachineStatus">
+      <soap:operation soapAction="http://semnox.com/UpdateMachineStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGamesList">
+      <soap:operation soapAction="http://semnox.com/GetGamesList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPList">
+      <soap:operation soapAction="http://semnox.com/GetAPList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestartAP">
+      <soap:operation soapAction="http://semnox.com/RestartAP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReaderThemesList">
+      <soap:operation soapAction="http://semnox.com/GetReaderThemesList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineDTOList">
+      <soap:operation soapAction="http://semnox.com/GetMachineDTOList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceDTO">
+      <soap:operation soapAction="http://semnox.com/GetPriceDTO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineLookupValuesDTOList">
+      <soap:operation soapAction="http://semnox.com/GetMachineLookupValuesDTOList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayGameWithMachineIdAndCardNumber">
+      <soap:operation soapAction="http://semnox.com/PlayGameWithMachineIdAndCardNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTickets">
+      <soap:operation soapAction="http://semnox.com/UpdateTickets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCoinPusherGamePlay">
+      <soap:operation soapAction="http://semnox.com/CreateCoinPusherGamePlay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestSoftwareVersion">
+      <soap:operation soapAction="http://semnox.com/GetLatestSoftwareVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PingServer">
+      <soap:operation soapAction="http://semnox.com/PingServer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameMachineParafaitDefaultsDTOList">
+      <soap:operation soapAction="http://semnox.com/GetGameMachineParafaitDefaultsDTOList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GameMachineServicesSoap12" type="tns:GameMachineServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetGameProfile">
+      <soap12:operation soapAction="http://semnox.com/GetGameProfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGamesOnProfile">
+      <soap12:operation soapAction="http://semnox.com/GetGamesOnProfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateGameMachine">
+      <soap12:operation soapAction="http://semnox.com/ValidateGameMachine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameDetails">
+      <soap12:operation soapAction="http://semnox.com/GetGameDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayGame">
+      <soap12:operation soapAction="http://semnox.com/PlayGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayGameByDevice">
+      <soap12:operation soapAction="http://semnox.com/PlayGameByDevice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineList">
+      <soap12:operation soapAction="http://semnox.com/GetMachineList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteMachineList">
+      <soap12:operation soapAction="http://semnox.com/GetSiteMachineList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMifareGameDetails">
+      <soap12:operation soapAction="http://semnox.com/SaveMifareGameDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachinesList">
+      <soap12:operation soapAction="http://semnox.com/GetMachinesList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutofServiceMachines">
+      <soap12:operation soapAction="http://semnox.com/GetOutofServiceMachines" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNoGamePlayMarkedOutOfServiceMachines">
+      <soap12:operation soapAction="http://semnox.com/GetNoGamePlayMarkedOutOfServiceMachines" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNoGamePlayNotMarkedOutOfServiceMachines">
+      <soap12:operation soapAction="http://semnox.com/GetNoGamePlayNotMarkedOutOfServiceMachines" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachinesWithNoCoinDrops">
+      <soap12:operation soapAction="http://semnox.com/GetMachinesWithNoCoinDrops" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachinesWithOneCoinDrop">
+      <soap12:operation soapAction="http://semnox.com/GetMachinesWithOneCoinDrop" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachinesWithTwoCoinDrops">
+      <soap12:operation soapAction="http://semnox.com/GetMachinesWithTwoCoinDrops" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMachineDetails">
+      <soap12:operation soapAction="http://semnox.com/UpdateMachineDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTechReports">
+      <soap12:operation soapAction="http://semnox.com/GetTechReports" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOOSReasonCodes">
+      <soap12:operation soapAction="http://semnox.com/GetOOSReasonCodes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMachineStatus">
+      <soap12:operation soapAction="http://semnox.com/UpdateMachineStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGamesList">
+      <soap12:operation soapAction="http://semnox.com/GetGamesList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPList">
+      <soap12:operation soapAction="http://semnox.com/GetAPList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestartAP">
+      <soap12:operation soapAction="http://semnox.com/RestartAP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReaderThemesList">
+      <soap12:operation soapAction="http://semnox.com/GetReaderThemesList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineDTOList">
+      <soap12:operation soapAction="http://semnox.com/GetMachineDTOList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceDTO">
+      <soap12:operation soapAction="http://semnox.com/GetPriceDTO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineLookupValuesDTOList">
+      <soap12:operation soapAction="http://semnox.com/GetMachineLookupValuesDTOList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayGameWithMachineIdAndCardNumber">
+      <soap12:operation soapAction="http://semnox.com/PlayGameWithMachineIdAndCardNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTickets">
+      <soap12:operation soapAction="http://semnox.com/UpdateTickets" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCoinPusherGamePlay">
+      <soap12:operation soapAction="http://semnox.com/CreateCoinPusherGamePlay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestSoftwareVersion">
+      <soap12:operation soapAction="http://semnox.com/GetLatestSoftwareVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PingServer">
+      <soap12:operation soapAction="http://semnox.com/PingServer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameMachineParafaitDefaultsDTOList">
+      <soap12:operation soapAction="http://semnox.com/GetGameMachineParafaitDefaultsDTOList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GameMachineServices">
+    <wsdl:port name="GameMachineServicesSoap" binding="tns:GameMachineServicesSoap">
+      <soap:address location="https://playpassws.chuckecheese.com/GameMachineServices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GameMachineServicesSoap12" binding="tns:GameMachineServicesSoap12">
+      <soap12:address location="https://playpassws.chuckecheese.com/GameMachineServices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,2507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://semnox.com/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://semnox.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://semnox.com/">
+      <s:element name="GetSocialLinksList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="showActive" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSocialLinksListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSocialLinksListResult" type="tns:ArrayOfCMSSocialLinksDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCMSSocialLinksDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CMSSocialLinksDTO" nillable="true" type="tns:CMSSocialLinksDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CMSSocialLinksDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="SocialLinkId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LinkName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Active" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DisplayOrder" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="Site_id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastupdatedDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImagePath" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSocialLinksDTO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="socailLinkId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSocialLinksDTOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSocialLinksDTOResult" type="tns:CMSSocialLinksDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveSocialLink">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cmsSocialLinksDTO" type="tns:CMSSocialLinksDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveSocialLinkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveSocialLinkResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSocialLinks">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="socialLinkId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSocialLinksResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteSocialLinksResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPagesList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="showActive" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPagesListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPagesListResult" type="tns:ArrayOfCMSPagesDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCMSPagesDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CMSPagesDTO" nillable="true" type="tns:CMSPagesDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CMSPagesDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PageId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PageName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="ContentId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="Site_id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MetaTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MetaKeywords" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MetaDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="GroupId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Active" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastupdatedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CMSContentDTOList" type="tns:ArrayOfCMSContentDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="PageContents" type="tns:ArrayOfCMSContentDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="CMSBannersDTO" type="tns:CMSBannersDTO" />
+          <s:element minOccurs="1" maxOccurs="1" name="BannerId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCMSContentDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CMSContentDTO" nillable="true" type="tns:CMSContentDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CMSContentDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ContentId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="PageId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContentName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisplaySection" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="DisplayOrder" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContentKey" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContentTemplateId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Active" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="Site_id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CMSContentTemplateDTO" type="tns:CMSContentTemplateDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="SectionName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ObjectTranslationsDTOList" type="tns:ArrayOfObjectTranslationsDTO" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CMSContentTemplateDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ContentTemplateId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContentTemplateName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ControlFileName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TemplateFileName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdatedDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Site_id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfObjectTranslationsDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ObjectTranslationsDTO" nillable="true" type="tns:ObjectTranslationsDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ObjectTranslationsDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LanguageId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ElementGuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TableObject" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Element" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Translation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdatedDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CMSBannersDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="BannerId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Active" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="Site_id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastupdatedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Frequency" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CMSBannerItemsDTOList" type="tns:ArrayOfCMSBannerItemsDTO" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCMSBannerItemsDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CMSBannerItemsDTO" nillable="true" type="tns:CMSBannerItemsDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CMSBannerItemsDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="BannerItemId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="BannerId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShowLink" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Target" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BannerImage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="DisplayOrder" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="Site_id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Active" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastupdatedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ObjectTranslationsDTOList" type="tns:ArrayOfObjectTranslationsDTO" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPagesTreeByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cMSPageParams" type="tns:CMSPageParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CMSPageParams">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="PageId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="SiteId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="PageName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="LanguageId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShowContents" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPagesTreeByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPagesTreeByNameResult" type="tns:CMSPagesDTOTree" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CMSPagesDTOTree">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CMSPagesDTO">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="MenuHeader" type="tns:ArrayOfCMSMenuItemsTree" />
+              <s:element minOccurs="0" maxOccurs="1" name="MenuFooter" type="tns:ArrayOfCMSMenuItemsTree" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfCMSMenuItemsTree">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CMSMenuItemsTree" nillable="true" type="tns:CMSMenuItemsTree" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CMSMenuItemsTree">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CMSMenuItemsDTO">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="SubMenu" type="tns:ArrayOfCMSMenuItemsDTO" />
+              <s:element minOccurs="1" maxOccurs="1" name="Count" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CMSMenuItemsDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="ItemId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="MenuId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Target" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Active" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsHeader" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="ParentItemId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="DisplayOrder" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="Site_id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ObjectTranslationsDTOList" type="tns:ArrayOfObjectTranslationsDTO" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCMSMenuItemsDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CMSMenuItemsDTO" nillable="true" type="tns:CMSMenuItemsDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pageId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPageResult" type="tns:CMSPagesDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SavePage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cmsPagesDTO" type="tns:CMSPagesDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SavePageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SavePageResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletePage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pageId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletePageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeletePageResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMenusList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="showActive" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMenusListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMenusListResult" type="tns:ArrayOfCMSMenusDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCMSMenusDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CMSMenusDTO" nillable="true" type="tns:CMSMenusDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CMSMenusDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="MenuId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Active" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="Site_id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastupdatedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CMSMenuItemsDTOList" type="tns:ArrayOfCMSMenuItemsDTO" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMenu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="menuId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMenuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMenuResult" type="tns:CMSMenusDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Savemenu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cmsMenusDTO" type="tns:CMSMenusDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SavemenuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SavemenuResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMenu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="menuId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMenuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteMenuResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMenuTree">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="menuId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="showActive" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMenuTreeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMenuTreeResult" type="tns:ArrayOfCMSMenuItemsTree" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMenuListTreeType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="headerType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMenuListTreeTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMenuListTreeTypeResult" type="tns:ArrayOfCMSMenuItemsTree" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMenusItemList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="showActive" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMenusItemListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMenusItemListResult" type="tns:ArrayOfCMSMenuItemsDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMenusItemListById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="itemId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMenusItemListByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMenusItemListByIdResult" type="tns:ArrayOfCMSMenuItemsDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTargetType">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTargetTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTargetTypeResult" type="tns:ArrayOfTargetType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTargetType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TargetType" type="tns:TargetType" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="TargetType">
+        <s:restriction base="s:string">
+          <s:enumeration value="_BLANK" />
+          <s:enumeration value="_SELF" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetMenuItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="menuitemId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMenuItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMenuItemResult" type="tns:CMSMenuItemsDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMenuItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cmsMenuItemsDTO" type="tns:CMSMenuItemsDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMenuItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveMenuItemResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMenuitem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="menuitemId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMenuitemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteMenuitemResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContentList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetContentListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetContentListResult" type="tns:ArrayOfCMSContentDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="contentId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetContentResult" type="tns:CMSContentDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveContent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cmsContentDTO" type="tns:CMSContentDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveContentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveContentResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteContent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="contentId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteContentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteContentResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBannerList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="showActive" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBannerListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBannerListResult" type="tns:ArrayOfCMSBannersDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCMSBannersDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CMSBannersDTO" nillable="true" type="tns:CMSBannersDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetBanner">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="bannerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBannerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBannerResult" type="tns:CMSBannersDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveBanner">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cmsBannersDTO" type="tns:CMSBannersDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveBannerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveBannerResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteBanner">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="bannerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteBannerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteBannerResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBannerItemByActiveBanner">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetBannerItemByActiveBannerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBannerItemByActiveBannerResult" type="tns:ArrayOfCMSBannerItemsDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBannerItemList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="showActive" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBannerItemListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBannerItemListResult" type="tns:ArrayOfCMSBannerItemsDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBannerItemsByBannerId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="bannerId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="showActive" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBannerItemsByBannerIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBannerItemsByBannerIdResult" type="tns:ArrayOfCMSBannerItemsDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBanneritem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="bannerItemId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBanneritemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBanneritemResult" type="tns:CMSBannerItemsDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveBannerItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cmsBannerItemsDTO" type="tns:CMSBannerItemsDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveBannerItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveBannerItemResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteBannerItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="bannerItemId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteBannerItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteBannerItemResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveGroupsDTO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cmsGroupsDTO" type="tns:CMSGroupsDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CMSGroupsDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="GroupId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="ParentGroupId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageFileName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GroupUrl" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Active" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="Site_id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveGroupsDTOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveGroupsDTOResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupsDTOById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="groupId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupsDTOByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroupsDTOByIdResult" type="tns:CMSGroupsDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteGroupsDTOById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cmsGroupDisplayGroupId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteGroupsDTOByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteGroupsDTOByIdResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupsList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="showActive" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupsListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroupsListResult" type="tns:ArrayOfCMSGroupsDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCMSGroupsDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CMSGroupsDTO" nillable="true" type="tns:CMSGroupsDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetGroupsListTree">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="groupId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="showActive" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupsListTreeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroupsListTreeResult" type="tns:ArrayOfCMSGroupsDTOTree" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCMSGroupsDTOTree">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CMSGroupsDTOTree" nillable="true" type="tns:CMSGroupsDTOTree" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CMSGroupsDTOTree">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CMSGroupsDTO">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="SubGroup" type="tns:ArrayOfCMSGroupsDTO" />
+              <s:element minOccurs="1" maxOccurs="1" name="Count" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="SaveGroupDisplayGroupDTO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cMSGroupDisplayGroupDTO" type="tns:CMSGroupDisplayGroupDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CMSGroupDisplayGroupDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="GroupDisplayGroupId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="GroupId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProductDisplayGroupId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdatedDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedUser" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveGroupDisplayGroupDTOResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetGroupDisplayGroupsList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GroupId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupDisplayGroupsListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroupDisplayGroupsListResult" type="tns:ArrayOfCMSGroupDisplayGroupDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCMSGroupDisplayGroupDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CMSGroupDisplayGroupDTO" nillable="true" type="tns:CMSGroupDisplayGroupDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetGroupDisplayGroupDTOById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cmsGroupDisplayGroupId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupDisplayGroupDTOByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroupDisplayGroupDTOByIdResult" type="tns:CMSGroupDisplayGroupDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteGroupDisplayGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cmsGroupDisplayGroupId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteGroupDisplayGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteGroupDisplayGroupResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteGroupDisplayGroupByGroupId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="groupId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteGroupDisplayGroupByGroupIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteGroupDisplayGroupByGroupIdResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveCMSModulesDTO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cmsModulesDTO" type="tns:CMSModulesDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CMSModulesDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="ModuleId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageFileName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MasterPage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ModuleRoute" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="MenuId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Active" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="Site_id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastupdatedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CMSModuleMenuDTOList" type="tns:ArrayOfCMSModuleMenuDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="CMSModulePageDTOList" type="tns:ArrayOfCMSModulePageDTO" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCMSModuleMenuDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CMSModuleMenuDTO" nillable="true" type="tns:CMSModuleMenuDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CMSModuleMenuDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModuleId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="MenuId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="Site_id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastupdatedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CMSMenusDTOList" type="tns:ArrayOfCMSMenusDTO" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCMSModulePageDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CMSModulePageDTO" nillable="true" type="tns:CMSModulePageDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CMSModulePageDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModuleId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="PageId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SynchStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="Site_id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastupdatedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MasterEntityId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CMSPagesDTOList" type="tns:ArrayOfCMSPagesDTO" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveCMSModulesDTOResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCMSModulesList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="active" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCMSModulesListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCMSModulesListResult" type="tns:ArrayOfCMSModulesDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCMSModulesDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CMSModulesDTO" nillable="true" type="tns:CMSModulesDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCMSModulesDTOById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="moduleId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCMSModulesDTOByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCMSModulesDTOByIdResult" type="tns:CMSModulesDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteModule">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="moduleId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteModuleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteModuleResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContentTemplateList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="contentTemplateId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContentTemplateListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetContentTemplateListResult" type="tns:ArrayOfCMSContentTemplateDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCMSContentTemplateDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CMSContentTemplateDTO" nillable="true" type="tns:CMSContentTemplateDTO" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetSocialLinksListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSocialLinksList" />
+  </wsdl:message>
+  <wsdl:message name="GetSocialLinksListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSocialLinksListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSocialLinksDTOSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSocialLinksDTO" />
+  </wsdl:message>
+  <wsdl:message name="GetSocialLinksDTOSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSocialLinksDTOResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveSocialLinkSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveSocialLink" />
+  </wsdl:message>
+  <wsdl:message name="SaveSocialLinkSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveSocialLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSocialLinksSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteSocialLinks" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSocialLinksSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteSocialLinksResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPagesListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPagesList" />
+  </wsdl:message>
+  <wsdl:message name="GetPagesListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPagesListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPagesTreeByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPagesTreeByName" />
+  </wsdl:message>
+  <wsdl:message name="GetPagesTreeByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPagesTreeByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPage" />
+  </wsdl:message>
+  <wsdl:message name="GetPageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="SavePageSoapIn">
+    <wsdl:part name="parameters" element="tns:SavePage" />
+  </wsdl:message>
+  <wsdl:message name="SavePageSoapOut">
+    <wsdl:part name="parameters" element="tns:SavePageResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletePageSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletePage" />
+  </wsdl:message>
+  <wsdl:message name="DeletePageSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletePageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMenusListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMenusList" />
+  </wsdl:message>
+  <wsdl:message name="GetMenusListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMenusListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMenu" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="SavemenuSoapIn">
+    <wsdl:part name="parameters" element="tns:Savemenu" />
+  </wsdl:message>
+  <wsdl:message name="SavemenuSoapOut">
+    <wsdl:part name="parameters" element="tns:SavemenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMenuSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteMenu" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMenuSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuTreeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMenuTree" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuTreeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMenuTreeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuListTreeTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMenuListTreeType" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuListTreeTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMenuListTreeTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMenusItemListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMenusItemList" />
+  </wsdl:message>
+  <wsdl:message name="GetMenusItemListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMenusItemListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMenusItemListByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMenusItemListById" />
+  </wsdl:message>
+  <wsdl:message name="GetMenusItemListByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMenusItemListByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTargetTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTargetType" />
+  </wsdl:message>
+  <wsdl:message name="GetTargetTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTargetTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuItemSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMenuItem" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuItemSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMenuItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveMenuItemSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveMenuItem" />
+  </wsdl:message>
+  <wsdl:message name="SaveMenuItemSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveMenuItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMenuitemSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteMenuitem" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMenuitemSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteMenuitemResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetContentListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetContentList" />
+  </wsdl:message>
+  <wsdl:message name="GetContentListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetContentListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetContentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetContent" />
+  </wsdl:message>
+  <wsdl:message name="GetContentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveContentSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveContent" />
+  </wsdl:message>
+  <wsdl:message name="SaveContentSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteContentSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteContent" />
+  </wsdl:message>
+  <wsdl:message name="DeleteContentSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBannerListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBannerList" />
+  </wsdl:message>
+  <wsdl:message name="GetBannerListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBannerListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBannerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBanner" />
+  </wsdl:message>
+  <wsdl:message name="GetBannerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBannerResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveBannerSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveBanner" />
+  </wsdl:message>
+  <wsdl:message name="SaveBannerSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveBannerResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBannerSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteBanner" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBannerSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteBannerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBannerItemByActiveBannerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBannerItemByActiveBanner" />
+  </wsdl:message>
+  <wsdl:message name="GetBannerItemByActiveBannerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBannerItemByActiveBannerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBannerItemListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBannerItemList" />
+  </wsdl:message>
+  <wsdl:message name="GetBannerItemListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBannerItemListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBannerItemsByBannerIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBannerItemsByBannerId" />
+  </wsdl:message>
+  <wsdl:message name="GetBannerItemsByBannerIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBannerItemsByBannerIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBanneritemSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBanneritem" />
+  </wsdl:message>
+  <wsdl:message name="GetBanneritemSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBanneritemResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveBannerItemSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveBannerItem" />
+  </wsdl:message>
+  <wsdl:message name="SaveBannerItemSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveBannerItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBannerItemSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteBannerItem" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBannerItemSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteBannerItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveGroupsDTOSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveGroupsDTO" />
+  </wsdl:message>
+  <wsdl:message name="SaveGroupsDTOSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveGroupsDTOResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsDTOByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroupsDTOById" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsDTOByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroupsDTOByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteGroupsDTOByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteGroupsDTOById" />
+  </wsdl:message>
+  <wsdl:message name="DeleteGroupsDTOByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteGroupsDTOByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroupsList" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroupsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsListTreeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroupsListTree" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsListTreeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroupsListTreeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveGroupDisplayGroupDTOSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveGroupDisplayGroupDTO" />
+  </wsdl:message>
+  <wsdl:message name="SaveGroupDisplayGroupDTOSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveGroupDisplayGroupDTOResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupDisplayGroupsListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroupDisplayGroupsList" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupDisplayGroupsListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroupDisplayGroupsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupDisplayGroupDTOByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroupDisplayGroupDTOById" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupDisplayGroupDTOByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroupDisplayGroupDTOByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteGroupDisplayGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteGroupDisplayGroup" />
+  </wsdl:message>
+  <wsdl:message name="DeleteGroupDisplayGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteGroupDisplayGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteGroupDisplayGroupByGroupIdSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteGroupDisplayGroupByGroupId" />
+  </wsdl:message>
+  <wsdl:message name="DeleteGroupDisplayGroupByGroupIdSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteGroupDisplayGroupByGroupIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveCMSModulesDTOSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveCMSModulesDTO" />
+  </wsdl:message>
+  <wsdl:message name="SaveCMSModulesDTOSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveCMSModulesDTOResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCMSModulesListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCMSModulesList" />
+  </wsdl:message>
+  <wsdl:message name="GetCMSModulesListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCMSModulesListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCMSModulesDTOByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCMSModulesDTOById" />
+  </wsdl:message>
+  <wsdl:message name="GetCMSModulesDTOByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCMSModulesDTOByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteModuleSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteModule" />
+  </wsdl:message>
+  <wsdl:message name="DeleteModuleSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteModuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetContentTemplateListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetContentTemplateList" />
+  </wsdl:message>
+  <wsdl:message name="GetContentTemplateListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetContentTemplateListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CMSServicesSoap">
+    <wsdl:operation name="GetSocialLinksList">
+      <wsdl:input message="tns:GetSocialLinksListSoapIn" />
+      <wsdl:output message="tns:GetSocialLinksListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSocialLinksDTO">
+      <wsdl:input message="tns:GetSocialLinksDTOSoapIn" />
+      <wsdl:output message="tns:GetSocialLinksDTOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveSocialLink">
+      <wsdl:input message="tns:SaveSocialLinkSoapIn" />
+      <wsdl:output message="tns:SaveSocialLinkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSocialLinks">
+      <wsdl:input message="tns:DeleteSocialLinksSoapIn" />
+      <wsdl:output message="tns:DeleteSocialLinksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPagesList">
+      <wsdl:input message="tns:GetPagesListSoapIn" />
+      <wsdl:output message="tns:GetPagesListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPagesTreeByName">
+      <wsdl:input message="tns:GetPagesTreeByNameSoapIn" />
+      <wsdl:output message="tns:GetPagesTreeByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPage">
+      <wsdl:input message="tns:GetPageSoapIn" />
+      <wsdl:output message="tns:GetPageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SavePage">
+      <wsdl:input message="tns:SavePageSoapIn" />
+      <wsdl:output message="tns:SavePageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePage">
+      <wsdl:input message="tns:DeletePageSoapIn" />
+      <wsdl:output message="tns:DeletePageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenusList">
+      <wsdl:input message="tns:GetMenusListSoapIn" />
+      <wsdl:output message="tns:GetMenusListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenu">
+      <wsdl:input message="tns:GetMenuSoapIn" />
+      <wsdl:output message="tns:GetMenuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Savemenu">
+      <wsdl:input message="tns:SavemenuSoapIn" />
+      <wsdl:output message="tns:SavemenuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMenu">
+      <wsdl:input message="tns:DeleteMenuSoapIn" />
+      <wsdl:output message="tns:DeleteMenuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuTree">
+      <wsdl:input message="tns:GetMenuTreeSoapIn" />
+      <wsdl:output message="tns:GetMenuTreeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuListTreeType">
+      <wsdl:input message="tns:GetMenuListTreeTypeSoapIn" />
+      <wsdl:output message="tns:GetMenuListTreeTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenusItemList">
+      <wsdl:input message="tns:GetMenusItemListSoapIn" />
+      <wsdl:output message="tns:GetMenusItemListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenusItemListById">
+      <wsdl:input message="tns:GetMenusItemListByIdSoapIn" />
+      <wsdl:output message="tns:GetMenusItemListByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTargetType">
+      <wsdl:input message="tns:GetTargetTypeSoapIn" />
+      <wsdl:output message="tns:GetTargetTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuItem">
+      <wsdl:input message="tns:GetMenuItemSoapIn" />
+      <wsdl:output message="tns:GetMenuItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveMenuItem">
+      <wsdl:input message="tns:SaveMenuItemSoapIn" />
+      <wsdl:output message="tns:SaveMenuItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMenuitem">
+      <wsdl:input message="tns:DeleteMenuitemSoapIn" />
+      <wsdl:output message="tns:DeleteMenuitemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContentList">
+      <wsdl:input message="tns:GetContentListSoapIn" />
+      <wsdl:output message="tns:GetContentListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContent">
+      <wsdl:input message="tns:GetContentSoapIn" />
+      <wsdl:output message="tns:GetContentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveContent">
+      <wsdl:input message="tns:SaveContentSoapIn" />
+      <wsdl:output message="tns:SaveContentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContent">
+      <wsdl:input message="tns:DeleteContentSoapIn" />
+      <wsdl:output message="tns:DeleteContentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBannerList">
+      <wsdl:input message="tns:GetBannerListSoapIn" />
+      <wsdl:output message="tns:GetBannerListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBanner">
+      <wsdl:input message="tns:GetBannerSoapIn" />
+      <wsdl:output message="tns:GetBannerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveBanner">
+      <wsdl:input message="tns:SaveBannerSoapIn" />
+      <wsdl:output message="tns:SaveBannerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBanner">
+      <wsdl:input message="tns:DeleteBannerSoapIn" />
+      <wsdl:output message="tns:DeleteBannerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBannerItemByActiveBanner">
+      <wsdl:input message="tns:GetBannerItemByActiveBannerSoapIn" />
+      <wsdl:output message="tns:GetBannerItemByActiveBannerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBannerItemList">
+      <wsdl:input message="tns:GetBannerItemListSoapIn" />
+      <wsdl:output message="tns:GetBannerItemListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBannerItemsByBannerId">
+      <wsdl:input message="tns:GetBannerItemsByBannerIdSoapIn" />
+      <wsdl:output message="tns:GetBannerItemsByBannerIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBanneritem">
+      <wsdl:input message="tns:GetBanneritemSoapIn" />
+      <wsdl:output message="tns:GetBanneritemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveBannerItem">
+      <wsdl:input message="tns:SaveBannerItemSoapIn" />
+      <wsdl:output message="tns:SaveBannerItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBannerItem">
+      <wsdl:input message="tns:DeleteBannerItemSoapIn" />
+      <wsdl:output message="tns:DeleteBannerItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveGroupsDTO">
+      <wsdl:input message="tns:SaveGroupsDTOSoapIn" />
+      <wsdl:output message="tns:SaveGroupsDTOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsDTOById">
+      <wsdl:input message="tns:GetGroupsDTOByIdSoapIn" />
+      <wsdl:output message="tns:GetGroupsDTOByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroupsDTOById">
+      <wsdl:input message="tns:DeleteGroupsDTOByIdSoapIn" />
+      <wsdl:output message="tns:DeleteGroupsDTOByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsList">
+      <wsdl:input message="tns:GetGroupsListSoapIn" />
+      <wsdl:output message="tns:GetGroupsListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsListTree">
+      <wsdl:input message="tns:GetGroupsListTreeSoapIn" />
+      <wsdl:output message="tns:GetGroupsListTreeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveGroupDisplayGroupDTO">
+      <wsdl:input message="tns:SaveGroupDisplayGroupDTOSoapIn" />
+      <wsdl:output message="tns:SaveGroupDisplayGroupDTOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupDisplayGroupsList">
+      <wsdl:input message="tns:GetGroupDisplayGroupsListSoapIn" />
+      <wsdl:output message="tns:GetGroupDisplayGroupsListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupDisplayGroupDTOById">
+      <wsdl:input message="tns:GetGroupDisplayGroupDTOByIdSoapIn" />
+      <wsdl:output message="tns:GetGroupDisplayGroupDTOByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroupDisplayGroup">
+      <wsdl:input message="tns:DeleteGroupDisplayGroupSoapIn" />
+      <wsdl:output message="tns:DeleteGroupDisplayGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroupDisplayGroupByGroupId">
+      <wsdl:input message="tns:DeleteGroupDisplayGroupByGroupIdSoapIn" />
+      <wsdl:output message="tns:DeleteGroupDisplayGroupByGroupIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCMSModulesDTO">
+      <wsdl:input message="tns:SaveCMSModulesDTOSoapIn" />
+      <wsdl:output message="tns:SaveCMSModulesDTOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCMSModulesList">
+      <wsdl:input message="tns:GetCMSModulesListSoapIn" />
+      <wsdl:output message="tns:GetCMSModulesListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCMSModulesDTOById">
+      <wsdl:input message="tns:GetCMSModulesDTOByIdSoapIn" />
+      <wsdl:output message="tns:GetCMSModulesDTOByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteModule">
+      <wsdl:input message="tns:DeleteModuleSoapIn" />
+      <wsdl:output message="tns:DeleteModuleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContentTemplateList">
+      <wsdl:input message="tns:GetContentTemplateListSoapIn" />
+      <wsdl:output message="tns:GetContentTemplateListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CMSServicesSoap" type="tns:CMSServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSocialLinksList">
+      <soap:operation soapAction="http://semnox.com/GetSocialLinksList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSocialLinksDTO">
+      <soap:operation soapAction="http://semnox.com/GetSocialLinksDTO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveSocialLink">
+      <soap:operation soapAction="http://semnox.com/SaveSocialLink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSocialLinks">
+      <soap:operation soapAction="http://semnox.com/DeleteSocialLinks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPagesList">
+      <soap:operation soapAction="http://semnox.com/GetPagesList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPagesTreeByName">
+      <soap:operation soapAction="http://semnox.com/GetPagesTreeByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPage">
+      <soap:operation soapAction="http://semnox.com/GetPage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePage">
+      <soap:operation soapAction="http://semnox.com/SavePage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePage">
+      <soap:operation soapAction="http://semnox.com/DeletePage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenusList">
+      <soap:operation soapAction="http://semnox.com/GetMenusList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenu">
+      <soap:operation soapAction="http://semnox.com/GetMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Savemenu">
+      <soap:operation soapAction="http://semnox.com/Savemenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMenu">
+      <soap:operation soapAction="http://semnox.com/DeleteMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuTree">
+      <soap:operation soapAction="http://semnox.com/GetMenuTree" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuListTreeType">
+      <soap:operation soapAction="http://semnox.com/GetMenuListTreeType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenusItemList">
+      <soap:operation soapAction="http://semnox.com/GetMenusItemList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenusItemListById">
+      <soap:operation soapAction="http://semnox.com/GetMenusItemListById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTargetType">
+      <soap:operation soapAction="http://semnox.com/GetTargetType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuItem">
+      <soap:operation soapAction="http://semnox.com/GetMenuItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMenuItem">
+      <soap:operation soapAction="http://semnox.com/SaveMenuItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMenuitem">
+      <soap:operation soapAction="http://semnox.com/DeleteMenuitem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContentList">
+      <soap:operation soapAction="http://semnox.com/GetContentList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContent">
+      <soap:operation soapAction="http://semnox.com/GetContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveContent">
+      <soap:operation soapAction="http://semnox.com/SaveContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContent">
+      <soap:operation soapAction="http://semnox.com/DeleteContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBannerList">
+      <soap:operation soapAction="http://semnox.com/GetBannerList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBanner">
+      <soap:operation soapAction="http://semnox.com/GetBanner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveBanner">
+      <soap:operation soapAction="http://semnox.com/SaveBanner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBanner">
+      <soap:operation soapAction="http://semnox.com/DeleteBanner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBannerItemByActiveBanner">
+      <soap:operation soapAction="http://semnox.com/GetBannerItemByActiveBanner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBannerItemList">
+      <soap:operation soapAction="http://semnox.com/GetBannerItemList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBannerItemsByBannerId">
+      <soap:operation soapAction="http://semnox.com/GetBannerItemsByBannerId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBanneritem">
+      <soap:operation soapAction="http://semnox.com/GetBanneritem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveBannerItem">
+      <soap:operation soapAction="http://semnox.com/SaveBannerItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBannerItem">
+      <soap:operation soapAction="http://semnox.com/DeleteBannerItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveGroupsDTO">
+      <soap:operation soapAction="http://semnox.com/SaveGroupsDTO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsDTOById">
+      <soap:operation soapAction="http://semnox.com/GetGroupsDTOById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroupsDTOById">
+      <soap:operation soapAction="http://semnox.com/DeleteGroupsDTOById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsList">
+      <soap:operation soapAction="http://semnox.com/GetGroupsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsListTree">
+      <soap:operation soapAction="http://semnox.com/GetGroupsListTree" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveGroupDisplayGroupDTO">
+      <soap:operation soapAction="http://semnox.com/SaveGroupDisplayGroupDTO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupDisplayGroupsList">
+      <soap:operation soapAction="http://semnox.com/GetGroupDisplayGroupsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupDisplayGroupDTOById">
+      <soap:operation soapAction="http://semnox.com/GetGroupDisplayGroupDTOById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroupDisplayGroup">
+      <soap:operation soapAction="http://semnox.com/DeleteGroupDisplayGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroupDisplayGroupByGroupId">
+      <soap:operation soapAction="http://semnox.com/DeleteGroupDisplayGroupByGroupId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCMSModulesDTO">
+      <soap:operation soapAction="http://semnox.com/SaveCMSModulesDTO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCMSModulesList">
+      <soap:operation soapAction="http://semnox.com/GetCMSModulesList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCMSModulesDTOById">
+      <soap:operation soapAction="http://semnox.com/GetCMSModulesDTOById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteModule">
+      <soap:operation soapAction="http://semnox.com/DeleteModule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContentTemplateList">
+      <soap:operation soapAction="http://semnox.com/GetContentTemplateList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CMSServicesSoap12" type="tns:CMSServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSocialLinksList">
+      <soap12:operation soapAction="http://semnox.com/GetSocialLinksList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSocialLinksDTO">
+      <soap12:operation soapAction="http://semnox.com/GetSocialLinksDTO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveSocialLink">
+      <soap12:operation soapAction="http://semnox.com/SaveSocialLink" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSocialLinks">
+      <soap12:operation soapAction="http://semnox.com/DeleteSocialLinks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPagesList">
+      <soap12:operation soapAction="http://semnox.com/GetPagesList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPagesTreeByName">
+      <soap12:operation soapAction="http://semnox.com/GetPagesTreeByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPage">
+      <soap12:operation soapAction="http://semnox.com/GetPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePage">
+      <soap12:operation soapAction="http://semnox.com/SavePage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePage">
+      <soap12:operation soapAction="http://semnox.com/DeletePage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenusList">
+      <soap12:operation soapAction="http://semnox.com/GetMenusList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenu">
+      <soap12:operation soapAction="http://semnox.com/GetMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Savemenu">
+      <soap12:operation soapAction="http://semnox.com/Savemenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMenu">
+      <soap12:operation soapAction="http://semnox.com/DeleteMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuTree">
+      <soap12:operation soapAction="http://semnox.com/GetMenuTree" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuListTreeType">
+      <soap12:operation soapAction="http://semnox.com/GetMenuListTreeType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenusItemList">
+      <soap12:operation soapAction="http://semnox.com/GetMenusItemList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenusItemListById">
+      <soap12:operation soapAction="http://semnox.com/GetMenusItemListById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTargetType">
+      <soap12:operation soapAction="http://semnox.com/GetTargetType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuItem">
+      <soap12:operation soapAction="http://semnox.com/GetMenuItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMenuItem">
+      <soap12:operation soapAction="http://semnox.com/SaveMenuItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMenuitem">
+      <soap12:operation soapAction="http://semnox.com/DeleteMenuitem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContentList">
+      <soap12:operation soapAction="http://semnox.com/GetContentList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContent">
+      <soap12:operation soapAction="http://semnox.com/GetContent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveContent">
+      <soap12:operation soapAction="http://semnox.com/SaveContent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContent">
+      <soap12:operation soapAction="http://semnox.com/DeleteContent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBannerList">
+      <soap12:operation soapAction="http://semnox.com/GetBannerList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBanner">
+      <soap12:operation soapAction="http://semnox.com/GetBanner" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveBanner">
+      <soap12:operation soapAction="http://semnox.com/SaveBanner" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBanner">
+      <soap12:operation soapAction="http://semnox.com/DeleteBanner" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBannerItemByActiveBanner">
+      <soap12:operation soapAction="http://semnox.com/GetBannerItemByActiveBanner" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBannerItemList">
+      <soap12:operation soapAction="http://semnox.com/GetBannerItemList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBannerItemsByBannerId">
+      <soap12:operation soapAction="http://semnox.com/GetBannerItemsByBannerId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBanneritem">
+      <soap12:operation soapAction="http://semnox.com/GetBanneritem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveBannerItem">
+      <soap12:operation soapAction="http://semnox.com/SaveBannerItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBannerItem">
+      <soap12:operation soapAction="http://semnox.com/DeleteBannerItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveGroupsDTO">
+      <soap12:operation soapAction="http://semnox.com/SaveGroupsDTO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsDTOById">
+      <soap12:operation soapAction="http://semnox.com/GetGroupsDTOById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroupsDTOById">
+      <soap12:operation soapAction="http://semnox.com/DeleteGroupsDTOById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsList">
+      <soap12:operation soapAction="http://semnox.com/GetGroupsList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsListTree">
+      <soap12:operation soapAction="http://semnox.com/GetGroupsListTree" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveGroupDisplayGroupDTO">
+      <soap12:operation soapAction="http://semnox.com/SaveGroupDisplayGroupDTO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupDisplayGroupsList">
+      <soap12:operation soapAction="http://semnox.com/GetGroupDisplayGroupsList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupDisplayGroupDTOById">
+      <soap12:operation soapAction="http://semnox.com/GetGroupDisplayGroupDTOById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroupDisplayGroup">
+      <soap12:operation soapAction="http://semnox.com/DeleteGroupDisplayGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroupDisplayGroupByGroupId">
+      <soap12:operation soapAction="http://semnox.com/DeleteGroupDisplayGroupByGroupId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCMSModulesDTO">
+      <soap12:operation soapAction="http://semnox.com/SaveCMSModulesDTO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCMSModulesList">
+      <soap12:operation soapAction="http://semnox.com/GetCMSModulesList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCMSModulesDTOById">
+      <soap12:operation soapAction="http://semnox.com/GetCMSModulesDTOById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteModule">
+      <soap12:operation soapAction="http://semnox.com/DeleteModule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContentTemplateList">
+      <soap12:operation soapAction="http://semnox.com/GetContentTemplateList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CMSServices">
+    <wsdl:port name="CMSServicesSoap" binding="tns:CMSServicesSoap">
+      <soap:address location="https://playpassws.chuckecheese.com/CMSServices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CMSServicesSoap12" binding="tns:CMSServicesSoap12">
+      <soap12:address location="https://playpassws.chuckecheese.com/CMSServices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

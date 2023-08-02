@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://semnox.com/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://semnox.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://semnox.com/">
+      <s:element name="GetPrizeMachineInfoDTOList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prizeMachineFilterDTO" type="tns:PrizeMachineFilterDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PrizeMachineFilterDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StartOfPeriod" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndOfPeriod" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DispenseCategory" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MachineList" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPrizeMachineInfoDTOListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPrizeMachineInfoDTOListResult" type="tns:ArrayOfPrizeMachineInfoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPrizeMachineInfoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PrizeMachineInfoDTO" nillable="true" type="tns:PrizeMachineInfoDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PrizeMachineInfoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DispenseCategory" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MachineRef" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StockQuantity" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="StockValue" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MachineCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TicketCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TestGetPrizeMachineInfoDTOListHelper">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="startOfPeriod" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endOfPeriod" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="dispenseCategory" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="machineRef1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="machineRef2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="machineRef3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="machineRef4" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="machineRef5" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestGetPrizeMachineInfoDTOListHelperResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TestGetPrizeMachineInfoDTOListHelperResult" type="tns:ArrayOfPrizeMachineInfoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RedeemTickets">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="redemptionParams" type="tns:RedemptionParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RedemptionParams">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ProductId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="CardNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="PosMachine" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiteId" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="-1" name="TicketCount" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RedeemTicketsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RedeemTicketsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RedeemTicketsTest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cardNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ticketCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="productId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="PosMachine" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RedeemTicketsTestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RedeemTicketsTestResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetPrizeMachineInfoDTOListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPrizeMachineInfoDTOList" />
+  </wsdl:message>
+  <wsdl:message name="GetPrizeMachineInfoDTOListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPrizeMachineInfoDTOListResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestGetPrizeMachineInfoDTOListHelperSoapIn">
+    <wsdl:part name="parameters" element="tns:TestGetPrizeMachineInfoDTOListHelper" />
+  </wsdl:message>
+  <wsdl:message name="TestGetPrizeMachineInfoDTOListHelperSoapOut">
+    <wsdl:part name="parameters" element="tns:TestGetPrizeMachineInfoDTOListHelperResponse" />
+  </wsdl:message>
+  <wsdl:message name="RedeemTicketsSoapIn">
+    <wsdl:part name="parameters" element="tns:RedeemTickets" />
+  </wsdl:message>
+  <wsdl:message name="RedeemTicketsSoapOut">
+    <wsdl:part name="parameters" element="tns:RedeemTicketsResponse" />
+  </wsdl:message>
+  <wsdl:message name="RedeemTicketsTestSoapIn">
+    <wsdl:part name="parameters" element="tns:RedeemTicketsTest" />
+  </wsdl:message>
+  <wsdl:message name="RedeemTicketsTestSoapOut">
+    <wsdl:part name="parameters" element="tns:RedeemTicketsTestResponse" />
+  </wsdl:message>
+  <wsdl:portType name="RedemptionServicesSoap">
+    <wsdl:operation name="GetPrizeMachineInfoDTOList">
+      <wsdl:input message="tns:GetPrizeMachineInfoDTOListSoapIn" />
+      <wsdl:output message="tns:GetPrizeMachineInfoDTOListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestGetPrizeMachineInfoDTOListHelper">
+      <wsdl:input message="tns:TestGetPrizeMachineInfoDTOListHelperSoapIn" />
+      <wsdl:output message="tns:TestGetPrizeMachineInfoDTOListHelperSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RedeemTickets">
+      <wsdl:input message="tns:RedeemTicketsSoapIn" />
+      <wsdl:output message="tns:RedeemTicketsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RedeemTicketsTest">
+      <wsdl:input message="tns:RedeemTicketsTestSoapIn" />
+      <wsdl:output message="tns:RedeemTicketsTestSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RedemptionServicesSoap" type="tns:RedemptionServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPrizeMachineInfoDTOList">
+      <soap:operation soapAction="http://semnox.com/GetPrizeMachineInfoDTOList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestGetPrizeMachineInfoDTOListHelper">
+      <soap:operation soapAction="http://semnox.com/TestGetPrizeMachineInfoDTOListHelper" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RedeemTickets">
+      <soap:operation soapAction="http://semnox.com/RedeemTickets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RedeemTicketsTest">
+      <soap:operation soapAction="http://semnox.com/RedeemTicketsTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RedemptionServicesSoap12" type="tns:RedemptionServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPrizeMachineInfoDTOList">
+      <soap12:operation soapAction="http://semnox.com/GetPrizeMachineInfoDTOList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestGetPrizeMachineInfoDTOListHelper">
+      <soap12:operation soapAction="http://semnox.com/TestGetPrizeMachineInfoDTOListHelper" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RedeemTickets">
+      <soap12:operation soapAction="http://semnox.com/RedeemTickets" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RedeemTicketsTest">
+      <soap12:operation soapAction="http://semnox.com/RedeemTicketsTest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RedemptionServices">
+    <wsdl:port name="RedemptionServicesSoap" binding="tns:RedemptionServicesSoap">
+      <soap:address location="https://playpassws.chuckecheese.com/RedemptionServices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RedemptionServicesSoap12" binding="tns:RedemptionServicesSoap12">
+      <soap12:address location="https://playpassws.chuckecheese.com/RedemptionServices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
